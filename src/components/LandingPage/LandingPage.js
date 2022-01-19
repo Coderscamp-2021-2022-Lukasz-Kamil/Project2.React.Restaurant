@@ -1,5 +1,13 @@
+import LandingPageImg from "./LandingPageImg/LandingPageImg";
+import LandingPageBody from "./LandingPageBody/LandingPageBody";
+
 const LandingPage = () => {
-  return <div>LandingPage</div>;
-};
+	return (
+		<>
+    <LandingPageImg />
+    <LandingPageBody />
+		</>
+	);
+}
 
 export default LandingPage;
