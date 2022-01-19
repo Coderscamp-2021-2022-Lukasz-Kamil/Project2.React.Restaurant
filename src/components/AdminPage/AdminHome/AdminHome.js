@@ -11,15 +11,14 @@ const AdminHome = () => {
     navigate("/admin");
   };
 
-  const signOutUser = () => {
-    signOut(auth)
-      .then((res) => {
-        setIsSignedIn(true);
-        navigation();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const signOutUser = async () => {
+    try {
+      await signOut(auth);
+      setIsSignedIn(true);
+      navigation();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
