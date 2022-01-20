@@ -5,6 +5,7 @@ import MenuPage from "./components/MenuPage/MenuPage";
 import AdminPanel from "./components/AdminPage/AdminPanel/AdminPanel";
 import AdminHome from "./components/AdminPage/AdminHome/AdminHome";
 import NotFound from "./components/NotFoundPage/NotFoundPage";
+import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/admin" element={<AdminPanel />} />
-          <Route path="/admin/home" element={<AdminHome />} />
+          <Route
+            path="/admin/home"
+            element={
+              <PrivateRoute>
+                <AdminHome />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
