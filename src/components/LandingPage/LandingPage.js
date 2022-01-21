@@ -3,11 +3,11 @@ import LandingPageBody from "./LandingPageBody/LandingPageBody";
 
 const LandingPage = () => {
 	return (
-		<>
-    <LandingPageImg />
-    <LandingPageBody />
-		</>
+		<div className='d-flex'>
+			<LandingPageImg />
+			<LandingPageBody />
+		</div>
 	);
-}
+};
 
 export default LandingPage;
