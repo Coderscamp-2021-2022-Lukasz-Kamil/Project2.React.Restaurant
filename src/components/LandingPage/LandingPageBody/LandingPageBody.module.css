@@ -1,0 +1,27 @@
+.title {
+        font-family: "Italianno";
+    }
+.subtitle {
+    font-family: "Rufina";
+}
+.about {
+    font-family: "Montserrat";
+    width: 50%;
+    max-width: 60rem;
+    align-self: center;text-align: justify;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.aboutTitle {
+    text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+    .about {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+}
