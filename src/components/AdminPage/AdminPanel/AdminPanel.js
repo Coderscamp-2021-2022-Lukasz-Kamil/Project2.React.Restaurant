@@ -1,22 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import styles from "./AdminPanel.module.css";
 import { auth } from "../../../firebase";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import {
-  Button,
-  Form,
-  FormGroup,
-  FormLabel,
-  FormControl,
-} from "react-bootstrap";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { Button, Form, FormGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Title from "../../Title/Title";
+import { Cookies } from "react-cookie";
 
 const AdminPanel = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cookie, setCookie] = useCookies(["isSignedIn"]);
+
+  useEffect(() => {
+    setCookie("isSignedIn", isSignedIn, { path: "/" });
+  }, [isSignedIn]);
 
   const navigate = useNavigate();
   const navigation = () => {
@@ -30,7 +31,7 @@ const AdminPanel = () => {
         navigation();
       })
       .catch((err) => {
-        console.log(err);
+        alert("Invalid e-mail or password!");
       });
   };
 
@@ -60,7 +61,6 @@ const AdminPanel = () => {
               width: "100%",
               height: "8vh",
               margin: "5px 0",
-              backgroundColor: "aqua",
               backgroundColor: "transparent",
               borderRadius: "4px",
               borderColor: "#fff",
@@ -96,6 +96,7 @@ const AdminPanel = () => {
             console.log("signed in")
           ) : (
             <Button
+              className={styles.signInButton}
               style={{
                 height: "8vh",
                 margin: "10px 0",

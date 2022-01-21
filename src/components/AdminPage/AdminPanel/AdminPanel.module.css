@@ -11,3 +11,7 @@
   align-items: center;
   background-color: #545454;
 }
+
+.signInButton:hover {
+  background-color: #e48b25 !important;
+}
