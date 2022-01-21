@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const auth = getAuth();
 

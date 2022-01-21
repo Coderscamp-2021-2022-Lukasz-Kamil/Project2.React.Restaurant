@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import styles from "./AdminPanel.module.css";
@@ -7,19 +7,14 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { Button, Form, FormGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Title from "../../Title/Title";
-import { Cookies } from "react-cookie";
 
 const AdminPanel = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cookie, setCookie] = useCookies(["isSignedIn"]);
 
-  useEffect(() => {
-    setCookie("isSignedIn", isSignedIn, { path: "/" });
-  }, [isSignedIn]);
-
   const navigate = useNavigate();
+
   const navigation = () => {
     navigate("/admin/home");
   };
@@ -27,7 +22,7 @@ const AdminPanel = () => {
   const signInUser = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        setIsSignedIn(true);
+        setCookie("isSignedIn", true, { path: "/" });
         navigation();
       })
       .catch((err) => {
@@ -91,31 +86,26 @@ const AdminPanel = () => {
               }}
             />
           </Form.Group>
-
-          {isSignedIn === true ? (
-            console.log("signed in")
-          ) : (
-            <Button
-              className={styles.signInButton}
-              style={{
-                height: "8vh",
-                margin: "10px 0",
-                padding: "10px",
-                borderRadius: "4px",
-                fontFamily: "Montserrat, sans-serif",
-                fontSize: "clamp(0.7rem, 2vw, 1rem)",
-                fontWeight: "bold",
-                backgroundColor: "#e1651f",
-                borderColor: "transparent",
-                boxShadow: "0 0 4px rgba(0, 0, 0, 0.26)",
-                textTransform: "uppercase",
-              }}
-              type="button"
-              onClick={signInUser}
-            >
-              Sign in
-            </Button>
-          )}
+          <Button
+            className={styles.signInButton}
+            style={{
+              height: "8vh",
+              margin: "10px 0",
+              padding: "10px",
+              borderRadius: "4px",
+              fontFamily: "Montserrat, sans-serif",
+              fontSize: "clamp(0.7rem, 2vw, 1rem)",
+              fontWeight: "bold",
+              backgroundColor: "#e1651f",
+              borderColor: "transparent",
+              boxShadow: "0 0 4px rgba(0, 0, 0, 0.26)",
+              textTransform: "uppercase",
+            }}
+            type="button"
+            onClick={signInUser}
+          >
+            Sign in
+          </Button>
         </Form.Group>
       </Form>
     </div>

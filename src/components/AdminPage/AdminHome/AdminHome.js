@@ -6,24 +6,15 @@ import { Cookies } from "react-cookie";
 import { useCookies } from "react-cookie";
 
 const AdminHome = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const [cookie, setCookie, removeCookie] = useCookies(["isSignedIn"]);
 
   const navigate = useNavigate();
-  const navigation = () => {
-    navigate("/admin");
-  };
-
-  const handleRemoveCookie = () => {
-    removeCookie("isSignedIn");
-  };
 
   const signOutUser = async () => {
     try {
       await signOut(auth);
-      setIsSignedIn(true);
-      // removeCookie("isSignedIn");
-      navigation();
+      removeCookie("isSignedIn", { path: "/" });
+      navigate("/admin");
     } catch (e) {
       console.log(e);
     }
@@ -32,19 +23,9 @@ const AdminHome = () => {
   return (
     <div>
       <div>AdminHome</div>
-      {isSignedIn === true ? (
-        console.log("signed out")
-      ) : (
-        <button
-          type="submit"
-          onClick={() => {
-            signOutUser();
-            handleRemoveCookie();
-          }}
-        >
-          Sign out
-        </button>
-      )}
+      <button type="submit" onClick={() => signOutUser()}>
+        Sign out
+      </button>
     </div>
   );
 };
