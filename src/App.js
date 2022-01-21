@@ -8,8 +8,8 @@ import NotFound from "./components/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
+    <div className="App">
     <Router>
-      <div className="App">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -18,8 +18,9 @@ function App() {
           <Route path="/admin/home" element={<AdminHome />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+      </Router>
       </div>
-    </Router>
+    
   );
 }
 

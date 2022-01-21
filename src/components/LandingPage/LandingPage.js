@@ -1,5 +1,15 @@
+import React from "react";
+import NavigationBar from "../NavigationBar/NavigationBar";
+
 const LandingPage = () => {
-  return <div>LandingPage</div>;
+  return (
+    <div>
+      <NavigationBar />
+      <div>LandingPage</div>
+    </div>
+  );
 };
+
+
 
 export default LandingPage;
