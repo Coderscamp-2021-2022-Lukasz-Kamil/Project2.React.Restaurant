@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column !important;
+  }
+
+  .map {
+    max-height: 30vh !important;
+  }
+}
