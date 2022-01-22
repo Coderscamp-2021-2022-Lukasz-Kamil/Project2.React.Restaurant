@@ -1,12 +1,13 @@
 import React from "react";
 import RestaurantLogo from "../../images/simple-icons_codechef.png"
 import 'bootstrap/dist/css/bootstrap.css'
-import { Nav, Navbar, Image, Container,Col, Button} from 'react-bootstrap'
+import { Nav, Navbar, Image, Container,Col} from 'react-bootstrap'
 import './NavigationBar.css'
-import {NavLink} from "react-router-dom"
 import HomeIcon from "../../images/home-icon.png"
 import MenuIcon from "../../images/menu-icon.png"
 import ContactIcon from "../../images/contact-icon.png"
+import Page from "./Page";
+import PageOnMobile from "./PageOnMobile";
 
 
 const NavigationBar = () => {
@@ -15,34 +16,34 @@ const NavigationBar = () => {
             <Col>
                 <Nav className="d-none d-md-flex align-items-center" > 
                     <Image className="mx-4 my-1" src={RestaurantLogo} alt="restaurant logo"></Image>
-                    <Nav.Link className="categories-text mx-3 p-4 active-page"> 
-                        <NavLink exact to='/' className="text-decoration-none text-white" activeClassName="active">Home</NavLink>
-                    </Nav.Link>      
-                    <Nav.Link className="categories-text mx-3 p-4 active-page">
-                        <NavLink to='/menu' className="text-decoration-none text-white" activeClassName="active">Menu</NavLink>
-                    </Nav.Link>
-                    <Nav.Link className="categories-text mx-3 p-4 active-page">
-                        <NavLink  to='/contact' className="text-decoration-none text-white" activeClassName="active">Contact</NavLink>
-                    </Nav.Link>
+                    <Page 
+                        source="/"
+                        name="Home"
+                    />
+                    <Page 
+                        source="/menu"
+                        name="Menu"
+                    />
+                    <Page 
+                        source="/contact"
+                        name="Contact"
+                    />
                 </Nav>
                 <Nav className=" justify-content-end d-md-none d-flex align-items-center" >
                     <Image className="restaurant-logo my-1 mx-3" src={RestaurantLogo} alt="restaurant logo"></Image>
                     <Container fluid className="d-flex justify-content-end nav-container active-page">
-                        <NavLink exact to='/' className="text-decoration-none text-white" activeClassName="active">
-                            <Button className="bg-transparent shadow-none border-none">
-                                <Image src={HomeIcon}></Image>
-                            </Button>
-                        </NavLink>  
-                        <NavLink exact to='/menu' className="text-decoration-none text-white" activeClassName="active">
-                            <Button className="bg-transparent shadow-none border-none">
-                                <Image src={MenuIcon}></Image>
-                            </Button>
-                        </NavLink>
-                        <NavLink exact to='/contact' className="text-decoration-none text-white" activeClassName="active">
-                            <Button className="bg-transparent shadow-none border-none">
-                                <Image src={ContactIcon}></Image>
-                            </Button>
-                        </NavLink>
+                        <PageOnMobile
+                            source="/"
+                            icon={HomeIcon}
+                        />  
+                        <PageOnMobile
+                            source="/menu"
+                            icon={MenuIcon}
+                        />  
+                        <PageOnMobile
+                            source="/contact"
+                            icon={ContactIcon}
+                        />  
                     </Container>
                 </Nav> 
             </Col>
