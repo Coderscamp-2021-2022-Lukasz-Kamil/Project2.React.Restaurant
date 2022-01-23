@@ -4,7 +4,13 @@ import { useCookies } from "react-cookie";
 import styles from "./AdminPanel.module.css";
 import { auth } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Button, Form, FormGroup, FormControl } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  FormControl,
+  InputGroup,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Title from "../../Title/Title";
 
@@ -32,7 +38,7 @@ const AdminPanel = () => {
   return (
     <div className={styles.loginPage}>
       <Form className="d-flex flex-column mw-40 mh-40 p-3 justify-content-center text-center align-items-center">
-        <img src="/icons/logo_icon.png" className="fluid" alt="" />
+        <img src="/icons/logo_icon.png" className=" img-responsive" alt="" />
         <Title />
         <FormGroup
           className={`d-flex flex-column ${styles.container}`}
@@ -41,38 +47,50 @@ const AdminPanel = () => {
           <FormGroup
             className={`mb-3 text-white bg-transparent rounded mt-3 mb-3 ${styles.form}`}
             style={{
-              height: "8vh",
               borderColor: "#fff",
             }}
           >
-            <FormControl
-              className="input"
-              type="email"
-              placeholder="e-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                height: "8vh",
-              }}
-            />
+            <InputGroup className="ps-2 border border-white h-100 align-items-center justify-content-center  ">
+              <span>
+                <img
+                  src="/icons/user_icon.png"
+                  className="fluid"
+                  alt=""
+                  className="img-responsive"
+                />
+              </span>
+              <FormControl
+                className={` bg-transparent text-white border-0 shadow-none ${styles.form} ${styles.myInput}`}
+                type="email"
+                placeholder="e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </InputGroup>
           </FormGroup>
 
           <FormGroup className="mb-3 ">
-            <FormControl
-              className="input"
-              type="password"
-              placeholder="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              style={{
-                height: "8vh",
-              }}
-            />
+            <InputGroup className="ps-2 border border-white h-100 align-items-center">
+              <span>
+                <img
+                  src="/icons/lock_icon.png"
+                  className="fluid"
+                  alt=""
+                  className="img-responsive"
+                />
+              </span>
+              <FormControl
+                className={` bg-transparent text-white border-0 shadow-none ${styles.form}`}
+                type="password"
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </InputGroup>
           </FormGroup>
           <Button
-            className={`p-2 rounded text-uppercase mt-2 shadow ${styles.signInButton}`}
+            className={`p-2 rounded text-uppercase mt-2 shadow ${styles.signInButton} ${styles.form}`}
             style={{
-              height: "8vh",
               fontFamily: "Montserrat, sans-serif",
               fontSize: "clamp(0.7rem, 2vw, 1rem)",
               fontWeight: "bold",
@@ -82,7 +100,7 @@ const AdminPanel = () => {
             type="button"
             onClick={signInUser}
           >
-            Sign in
+            Login
           </Button>
         </FormGroup>
       </Form>

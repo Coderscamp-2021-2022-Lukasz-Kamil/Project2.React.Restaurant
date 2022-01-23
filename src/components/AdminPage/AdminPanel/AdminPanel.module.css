@@ -15,16 +15,21 @@
 .signInButton:hover {
   background-color: #e48b25 !important;
 }
+.form {
+  min-height: 8vh;
+}
 
 @media (max-width: 768px) {
   .form {
     min-width: 40vw;
+    min-height: 7vh;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .form {
     min-width: 35vw;
+    min-height: 7vh;
   }
 }
 
