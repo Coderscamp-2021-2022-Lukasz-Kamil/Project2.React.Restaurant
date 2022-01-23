@@ -1,7 +1,7 @@
 import React from "react";
 import Page from "./Page";
 
-const Pages = (props) => {
+const Pages = () => {
     const pages =[
         {source: "/", name: "Home"},
         {source: "/menu", name: "Menu"},

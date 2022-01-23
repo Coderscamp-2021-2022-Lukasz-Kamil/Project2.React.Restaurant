@@ -4,7 +4,7 @@ import HomeIcon from "../../images/home-icon.png"
 import MenuIcon from "../../images/menu-icon.png"
 import ContactIcon from "../../images/contact-icon.png"
 
-const PagesOnMobile = (props) => {
+const PagesOnMobile = () => {
     const pagesOnMobile =[
         {source: "/", icon: HomeIcon},
         {source: "/menu", icon: MenuIcon},
