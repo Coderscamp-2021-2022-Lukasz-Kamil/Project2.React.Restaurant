@@ -11,9 +11,7 @@ import { useCookies } from "react-cookie";
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
 
-  const isSignedIn = () => {
-    return cookie.isSignedIn;
-  };
+  const isSignedIn = () => cookie.isSignedIn;
 
   return (
     <Router>
