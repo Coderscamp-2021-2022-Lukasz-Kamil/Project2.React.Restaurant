@@ -54,7 +54,6 @@ const AdminPanel = () => {
               <span>
                 <img
                   src="/icons/user_icon.png"
-                  className="fluid"
                   alt=""
                   className="img-responsive"
                 />
@@ -74,7 +73,6 @@ const AdminPanel = () => {
               <span>
                 <img
                   src="/icons/lock_icon.png"
-                  className="fluid"
                   alt=""
                   className="img-responsive"
                 />
