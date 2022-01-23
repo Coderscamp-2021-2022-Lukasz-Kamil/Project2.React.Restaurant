@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ContactPage from "./components/ContactPage/ContactPage";
 import MenuPage from "./components/MenuPage/MenuPage";
@@ -7,6 +12,7 @@ import AdminHome from "./components/AdminPage/AdminHome/AdminHome";
 import NotFound from "./components/NotFoundPage/NotFoundPage";
 import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
 import { useCookies } from "react-cookie";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
@@ -14,12 +20,14 @@ function App() {
   const isSignedIn = () => cookie.isSignedIn;
 
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
+      <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/" element={<PagesWithNavigationBar />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+          </Route>
           <Route path="/admin" element={<AdminPanel />} />
           {isSignedIn() && <Route path="/admin/home" element={<AdminHome />} />}
           <Route
@@ -32,9 +40,18 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
+
+  function PagesWithNavigationBar() {
+    return (
+      <>
+        <NavigationBar />
+        <Outlet />
+      </>
+    );
+  }
 }
 
 export default App;
