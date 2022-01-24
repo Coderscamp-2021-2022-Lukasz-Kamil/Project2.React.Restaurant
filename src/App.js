@@ -10,9 +10,15 @@ import MenuPage from "./components/MenuPage/MenuPage";
 import AdminPanel from "./components/AdminPage/AdminPanel/AdminPanel";
 import AdminHome from "./components/AdminPage/AdminHome/AdminHome";
 import NotFound from "./components/NotFoundPage/NotFoundPage";
+import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
+import { useCookies } from "react-cookie";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 
 function App() {
+  const [cookie] = useCookies(["isSignedIn"]);
+
+  const isSignedIn = () => cookie.isSignedIn;
+
   return (
     <div className="App">
       <Router>
@@ -23,7 +29,15 @@ function App() {
             <Route path="/menu" element={<MenuPage />} />
           </Route>
           <Route path="/admin" element={<AdminPanel />} />
-          <Route path="/admin/home" element={<AdminHome />} />
+          {isSignedIn() && <Route path="/admin/home" element={<AdminHome />} />}
+          <Route
+            path="/admin/home"
+            element={
+              <PrivateRoute>
+                <AdminHome />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
