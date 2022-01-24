@@ -33,7 +33,7 @@ const ContactPage = () => {
           <Col
             className={` d-flex flex-column text-white vh-50  align-items-center   ${styles.row}`}
             style={{
-              lineHeight: "1.2",
+              lineHeight: "2",
               fontSize: "clamp(1rem, 3vw, 1.8rem)",
               borderStyle: "none",
             }}
