@@ -1,12 +1,10 @@
 import { Card } from "react-bootstrap";
-import styles from  "./LandingPageBody.module.css"
+import styles from "./LandingPageBody.module.css";
 
 const LandingPageBody = () => {
 	return (
 		<>
-			<Card
-				className='bg-transparent text-white text-center align-self-center'
-				style={{ position: "absolute" }}>
+			<Card className='bg-transparent text-white text-center border-0'>
 				<Card.Body>
 					<Card.Title className={styles["title"]}
 						style={{
@@ -24,10 +22,8 @@ const LandingPageBody = () => {
 					</Card.Subtitle>
 				</Card.Body>
 
-				<Card.Body  className={styles["about"]}>
-					<Card.Title className={styles["aboutTitle"]}>
-						About
-					</Card.Title>
+				<Card.Body className={styles["about"]}>
+					<Card.Title className={styles["aboutTitle"]}>About</Card.Title>
 					<Card.Text>
 						With this desire was born the idea of ​​creating Paradiso Italiano,
 						where you can find real Italian flavors: pizza on a delicate, thin

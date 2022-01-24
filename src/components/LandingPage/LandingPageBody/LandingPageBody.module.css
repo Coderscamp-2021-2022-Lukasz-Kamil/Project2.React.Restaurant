@@ -1,27 +1,26 @@
 .title {
-        font-family: "Italianno";
-    }
+	font-family: "Italianno";
+}
 .subtitle {
-    font-family: "Rufina";
+	font-family: "Rufina";
 }
 .about {
-    font-family: "Montserrat";
-    width: 50%;
-    max-width: 60rem;
-    align-self: center;text-align: justify;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
+	font-family: "Montserrat";
+	max-width: 45rem;
+	align-self: center;
+	text-align: justify;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
 }
 
 .aboutTitle {
-    text-transform: uppercase;
+	text-transform: uppercase;
 }
 
-@media (max-width: 600px) {
-    .about {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-    }
+@media (max-width: 750px) {
+	.about {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+	}
 }
