@@ -8,7 +8,7 @@
   max-height: 6vh;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .container {
     max-height: 86vh !important;
     align-items: center !important;
@@ -18,14 +18,14 @@
     min-width: 60vw !important;
     max-height: 45vh;
     margin-bottom: 20px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
   .title {
-    margin: 0 !important;
+    margin-bottom: 10px !important;
   }
   .text {
-    margin-top: 0 !important;
+    margin-top: 10px !important;
   }
 
   .map {
@@ -34,19 +34,81 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (max-width: 768px) and (orientation: landscape) {
   .container {
-    max-height: 85vh;
+    max-height: 70vh !important;
+  }
+
+  .row {
+    height: 70vh;
+  }
+
+  .title {
+    margin-bottom: 2px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .text {
+    line-height: 1.1;
+    font-size: 1.1rem !important;
+  }
+
+  .map {
+    height: 30vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) and (orientation: portrait) {
+  .container {
+    max-height: 75vh;
+    margin: 0 !important;
+    padding: 2rem !important;
   }
   .row {
-    min-width: 60vh;
-    margin-bottom: 20px;
-    max-height: 40vh;
-    margin-top: 5vh !important;
+    height: 36vh;
+    min-width: 60vw;
+    justify-content: center;
+    margin: 0 !important;
+  }
+
+  .title {
+    font-size: 2rem !important;
+    margin-top: 20px !important;
+  }
+  .text {
+    font-size: 1.6rem;
   }
   .map {
-    height: 28vh !important;
-    min-width: 70vw !important;
+    height: 30vh !important;
+  }
+
+  .address {
+    width: 80% !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) and (orientation: landscape) {
+  .container {
+    max-height: 60vh !important;
+    padding-bottom: 10px !important;
+  }
+  .row {
+    height: 60vh;
+  }
+  .text {
+    padding: 0;
+    margin: 0 0 7px 0;
+    font-size: 1.2rem !important;
+  }
+
+  .title {
+    font-size: 1.4rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .map {
+    height: 25vh !important;
+    width: 50% !important;
   }
 }
 

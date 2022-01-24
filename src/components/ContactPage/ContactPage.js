@@ -39,7 +39,7 @@ const ContactPage = () => {
             }}
           >
             <Card.Title
-              className={`{styles.title}`}
+              className={styles.title}
               style={{
                 textTransform: "uppercase",
                 fontSize: "clamp(1.2rem, 3vw, 2.4rem)",
@@ -60,13 +60,23 @@ const ContactPage = () => {
               src="/icons/icon_phone.png"
               alt=""
             />
-            <Card.Text className="mt-3">+48 665-331-225</Card.Text>
+            <Card.Text
+              className={`${styles.text}`}
+              style={{ marginTop: "10px" }}
+            >
+              +48 665-331-225
+            </Card.Text>
             <img
               className={`img-responsive ${styles.icon}`}
               src="/icons/icon_envelope.png"
               alt=""
             />
-            <Card.Text className="mt-3">support@paradiso.pl</Card.Text>
+            <Card.Text
+              className={`${styles.text}`}
+              style={{ marginTop: "10px" }}
+            >
+              support@paradiso.pl
+            </Card.Text>
           </Col>
           <Col
             className={`h-auto ${styles.row}`}
@@ -74,9 +84,13 @@ const ContactPage = () => {
               fontSize: "clamp(1rem, 3vw, 1.8rem)",
             }}
           >
-            <Card className="bg-transparent text-white align-items-center border-0 ">
+            <Card
+              className={
+                "bg-transparent text-white align-items-center border-0 "
+              }
+            >
               <Card.Title
-                className="text-uppercase"
+                className={`${styles.title} text-uppercase`}
                 style={{
                   fontSize: "clamp(1.2rem, 3vw, 2.4rem)",
                   fontFamily: "Rufina",
@@ -86,7 +100,7 @@ const ContactPage = () => {
                 find us here
               </Card.Title>
               <Card.Text
-                className={styles.address}
+                className={`${styles.address} ${styles.text}`}
                 style={{ width: "50%", marginTop: "10px" }}
               >
                 Powstańców Śląskich 5, 53-332 Wrocław, Poland
