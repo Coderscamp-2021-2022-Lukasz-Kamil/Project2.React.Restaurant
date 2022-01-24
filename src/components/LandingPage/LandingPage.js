@@ -8,6 +8,7 @@ const LandingPage = () => {
 		<LandingPageImg />
 		</>
 	);
-};
+
+
 
 export default LandingPage;
