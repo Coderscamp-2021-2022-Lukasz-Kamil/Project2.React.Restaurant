@@ -1,0 +1,67 @@
+::placeholder {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-family: Rufina;
+  text-transform: unset;
+  letter-spacing: 1.2px;
+  opacity: 0.5 !important;
+  color: #c4c4c4 !important;
+}
+
+.signInButton:hover {
+  background-color: #e48b25 !important;
+  border-color: #e1651f !important;
+}
+
+.deleteButton:hover {
+  background-color: rgb(196, 11, 11) !important;
+}
+
+.input:hover {
+  border-color: #e48b25 !important;
+}
+
+@media (max-width: 767px) {
+  .form {
+    min-width: 100vw !important;
+    padding: 0 !important;
+  }
+  .inputsContainer {
+    background-color: #fff !important;
+  }
+
+  .usersContainer {
+    min-width: 99vw !important;
+  }
+  .input {
+    min-width: 99vw !important;
+  }
+
+  .signInButton {
+    max-height: 4vh !important;
+  }
+
+  .emailColumn {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form {
+    min-width: 80vw !important;
+    max-height: 80vh !important;
+  }
+
+  .input {
+    min-width: 50vw !important;
+  }
+
+  .signInButton {
+    max-height: 4vh !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .form {
+    min-width: 60vw !important;
+  }
+}
