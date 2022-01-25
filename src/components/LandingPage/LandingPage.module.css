@@ -7,6 +7,7 @@
 .about {
 	font-family: "Montserrat";
 	max-width: 46.75rem;
+	max-height: 12rem;
 	align-self: center;
 	text-align: justify;
 	background: rgba(0, 0, 0, 0.4);
@@ -18,9 +19,10 @@
 }
 
 @media (max-width: 750px) {
+	
 	.about {
-		position: fixed;
-		left: 0;
-		bottom: 0;
+		margin-top: auto;
+		width: 100vw;
+		max-height: 16rem;
 	}
 }
