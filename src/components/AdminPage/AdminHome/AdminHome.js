@@ -2,7 +2,7 @@ import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useCookies } from "react-cookie";
-import AddingUserForm from "../AddingUserForm/AddingUserForm";
+import FormContainer from "../UserForm/FormContainer";
 const AdminHome = () => {
   const [, , removeCookie] = useCookies(["isSignedIn"]);
 
@@ -24,7 +24,7 @@ const AdminHome = () => {
       <button type="submit" onClick={() => signOutUser()}>
         Sign out
       </button>
-      <AddingUserForm />
+      <FormContainer />
     </div>
   );
 };

@@ -1,0 +1,19 @@
+@media (max-width: 767px) {
+  .form {
+    min-width: 100vw !important;
+    padding: 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form {
+    min-width: 80vw !important;
+    max-height: 80vh !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .form {
+    min-width: 60vw !important;
+  }
+}
