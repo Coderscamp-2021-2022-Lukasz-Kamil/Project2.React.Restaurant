@@ -8,7 +8,7 @@ import PagesOnMobile from "./PagesOnMobile";
 
 const NavigationBar = () => {
   return (
-    <Navbar className="d-flex nav-background">
+    <Navbar className=" d-flex nav-background">
       <Col>
         <Nav className="d-none d-md-flex align-items-center">
           <Image

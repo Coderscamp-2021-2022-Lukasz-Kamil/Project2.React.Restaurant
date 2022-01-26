@@ -20,7 +20,7 @@ function App() {
   const isSignedIn = () => cookie.isSignedIn;
 
   return (
-    <div className="App">
+    <div className="App" style={{ display: "grid", height: "100vh" }}>
       <Router>
         <Routes>
           <Route path="/" element={<PagesWithNavigationBar />}>
