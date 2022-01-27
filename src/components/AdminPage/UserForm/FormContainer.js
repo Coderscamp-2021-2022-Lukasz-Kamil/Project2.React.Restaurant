@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import NewUser from "./UsersTable";
+import NewUser from "./NewUser";
 import AddingUserForm from "./AddingUserForm";
 import styles from "./FormContainer.module.css";
 import { useState } from "react";

@@ -1,11 +1,4 @@
-.deleteButton:hover {
-  background-color: rgb(196, 11, 11) !important;
-}
-
 @media (max-width: 767px) {
-  .usersContainer {
-    min-width: 99vw !important;
-  }
   .emailColumn {
     display: none !important;
   }

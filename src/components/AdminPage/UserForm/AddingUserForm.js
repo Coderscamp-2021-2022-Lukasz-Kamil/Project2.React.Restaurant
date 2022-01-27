@@ -14,6 +14,8 @@ const AddingUserForm = ({ addUser }) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPhone, setEnteredPhone] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+  const [passwordTouched, setPasswordTouched] = useState(false);
+  const isValid = enteredPassword != null && enteredPassword.trim().length > 5;
 
   const enteredNameHandler = (event) => {
     setEnteredName(event.target.value);
@@ -27,6 +29,7 @@ const AddingUserForm = ({ addUser }) => {
 
   const enteredPasswordHandler = (event) => {
     setEnteredPassword(event.target.value);
+    setPasswordTouched(true);
   };
 
   const submitHandler = (e) => {
@@ -45,6 +48,18 @@ const AddingUserForm = ({ addUser }) => {
     setEnteredEmail("");
     setEnteredPhone("");
     setEnteredPassword("");
+    setPasswordTouched("");
+  };
+
+  const isPasswordValid = (event) => {
+    setEnteredPassword(event.target.value);
+  };
+
+  const checkIfPassWordIsValid = () => {
+    if (!passwordTouched) {
+      return true;
+    }
+    return enteredPassword.length > 5;
   };
 
   return (
@@ -82,18 +97,22 @@ const AddingUserForm = ({ addUser }) => {
             type="tel"
             value={enteredPhone}
             onChange={enteredPhoneHandler}
+            pattern="[0-9]*"
             required
           ></FormControl>
           <FormControl
-            className={`mt-2 p-2 shadow-none text-white ${styles.input}`}
+            className={`mt-2 p-2 shadow-none text-white ${styles.input}   `}
             style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
             placeholder="Password"
             type="password"
             value={enteredPassword}
             onChange={enteredPasswordHandler}
+            onClick={isPasswordValid}
             required
           ></FormControl>
+          {!checkIfPassWordIsValid() && <p>Your password is too short</p>}
         </FormGroup>
+
         <Button
           className={`d-flex justify-content-center align-items-center shadow  mt-4 p-1 ${styles.signInButton}`}
           style={{
@@ -107,6 +126,7 @@ const AddingUserForm = ({ addUser }) => {
             borderRadius: "0",
           }}
           type="submit"
+          disabled={!isValid}
         >
           <img
             src="/icons/plus_icon.png"
