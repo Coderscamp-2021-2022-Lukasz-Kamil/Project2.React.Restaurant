@@ -15,6 +15,7 @@ const AddingUserForm = ({ addUser }) => {
   const [enteredPhone, setEnteredPhone] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordTouched, setPasswordTouched] = useState(false);
+  const [phoneTouched, setPhoneTouched] = useState(false);
   const isValid = enteredPassword != null && enteredPassword.trim().length > 5;
 
   const enteredNameHandler = (event) => {
@@ -24,7 +25,9 @@ const AddingUserForm = ({ addUser }) => {
     setEnteredEmail(event.target.value);
   };
   const enteredPhoneHandler = (event) => {
-    setEnteredPhone(event.target.value);
+    const onlyDigits = event.target.value.replace(/\D/g, "");
+    setEnteredPhone(onlyDigits);
+    setPhoneTouched(true);
   };
 
   const enteredPasswordHandler = (event) => {
@@ -48,18 +51,23 @@ const AddingUserForm = ({ addUser }) => {
     setEnteredEmail("");
     setEnteredPhone("");
     setEnteredPassword("");
-    setPasswordTouched("");
+    setPasswordTouched(false);
+    setPhoneTouched(false);
   };
 
   const isPasswordValid = (event) => {
     setEnteredPassword(event.target.value);
   };
 
-  const checkIfPassWordIsValid = () => {
+  const checkIfPasswordIsValid = () => {
     if (!passwordTouched) {
       return true;
     }
     return enteredPassword.length > 5;
+  };
+
+  const checkIfPhoneIsTooShort = () => {
+    return phoneTouched && enteredPhone.length < 9;
   };
 
   return (
@@ -97,9 +105,11 @@ const AddingUserForm = ({ addUser }) => {
             type="tel"
             value={enteredPhone}
             onChange={enteredPhoneHandler}
-            pattern="[0-9]*"
+            pattern="^[0-9]*$"
+            maxLength={13}
             required
           ></FormControl>
+          {checkIfPhoneIsTooShort() && <p>Your phone number is too short</p>}
           <FormControl
             className={`mt-2 p-2 shadow-none text-white ${styles.input}   `}
             style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
@@ -110,7 +120,7 @@ const AddingUserForm = ({ addUser }) => {
             onClick={isPasswordValid}
             required
           ></FormControl>
-          {!checkIfPassWordIsValid() && <p>Your password is too short</p>}
+          {!checkIfPasswordIsValid() && <p>Your password is too short</p>}
         </FormGroup>
 
         <Button
