@@ -13,6 +13,7 @@ import NotFound from "./components/NotFoundPage/NotFoundPage";
 import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
 import { useCookies } from "react-cookie";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import "./App.css";
 
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
@@ -20,7 +21,7 @@ function App() {
   const isSignedIn = () => cookie.isSignedIn;
 
   return (
-    <div className="App" style={{ display: "grid", height: "100vh" }}>
+    <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<PagesWithNavigationBar />}>
