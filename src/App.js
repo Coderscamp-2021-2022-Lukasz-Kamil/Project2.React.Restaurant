@@ -14,6 +14,7 @@ import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
 import { useCookies } from "react-cookie";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import "./App.css";
+import DishForm from "./components/AdminPage/DishForm/DishForm";
 
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
@@ -37,6 +38,12 @@ function App() {
               <PrivateRoute>
                 <AdminHome />
               </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/dish"
+            element={
+              <DishForm />
             }
           />
           <Route path="*" element={<NotFound />} />

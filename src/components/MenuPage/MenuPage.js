@@ -1,10 +1,10 @@
+import { Container } from "react-bootstrap";
 import React from "react";
 
 const MenuPage = () => {
   return (
-    <div>
-      <div>MenuPage</div>
-    </div>
+    <Container>
+    </Container>
   );
 };
 
