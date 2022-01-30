@@ -3,9 +3,9 @@ import { collection, addDoc} from 'firebase/firestore'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
-export const addUserInfo = async (email, password, name, phoneNumber, accountType="user", id) => {
+const addUserInfo = async (email, password, name, phoneNumber, accountType="user", id) => {
   const usersCollectionRef = collection(db, 'users');
-  
+
   try {
     await addDoc(usersCollectionRef, {
       user_id: id, 
@@ -17,7 +17,7 @@ export const addUserInfo = async (email, password, name, phoneNumber, accountTyp
   } catch (e) {
     console.log(e);
   }
-}
+};
 
 
 export const addUser = async (email, password, name, phoneNumber, accountType) => {
@@ -26,7 +26,6 @@ export const addUser = async (email, password, name, phoneNumber, accountType) =
     const user = userCredential.user;
     console.log(user.uid);
     addUserInfo(email, password, name, phoneNumber, accountType, user.uid);
-
   })
   .catch((e) => {
     console.log(e);
