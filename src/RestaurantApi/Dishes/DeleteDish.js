@@ -7,6 +7,6 @@ export const deleteDish = async (id) => {
   try {
     await deleteDoc(dishDoc);
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   } 
 };

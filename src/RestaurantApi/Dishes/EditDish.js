@@ -16,6 +16,6 @@ export const editDish = async (id, dishName, dishCost, dishCategory, dishImgLink
   try {
     await updateDoc(dishDoc, newFields);
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }
 };

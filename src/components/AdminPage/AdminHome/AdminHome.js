@@ -2,6 +2,7 @@ import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useCookies } from "react-cookie";
+import DishForm from "../../DishForm/DishForm";
 
 const AdminHome = () => {
   const [, , removeCookie] = useCookies(["isSignedIn"]);
@@ -24,6 +25,7 @@ const AdminHome = () => {
       <button type="submit" onClick={() => signOutUser()}>
         Sign out
       </button>
+      <DishForm />
     </div>
   );
 };

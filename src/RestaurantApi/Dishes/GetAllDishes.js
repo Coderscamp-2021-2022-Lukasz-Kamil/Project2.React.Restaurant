@@ -9,6 +9,6 @@ export const getAllDishes = async () => {
     allDishes = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
     return allDishes;
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }      
 };

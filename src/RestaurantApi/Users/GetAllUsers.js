@@ -10,6 +10,6 @@ export const getAllUsers = async () => {
     allUsers = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
     return allUsers;
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }      
 };

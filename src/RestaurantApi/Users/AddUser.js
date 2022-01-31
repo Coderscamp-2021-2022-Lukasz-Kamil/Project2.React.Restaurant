@@ -28,6 +28,6 @@ export const addUser = async (email, password, name, phoneNumber, accountType) =
     addUserInfo(email, password, name, phoneNumber, accountType, user.uid);
   })
   .catch((e) => {
-    console.log(e);
+    console.error(e.message, e.name);
   });
 };

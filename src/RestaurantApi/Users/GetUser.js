@@ -5,6 +5,6 @@ export const getUser = async(user_id) => {
     const dishesData = await getAllUsers();
     return dishesData.find(element => element.user_id === user_id);
   } catch (e) {
-      console.log(e);
+      console.error(e.message, e.name);
   }
 };

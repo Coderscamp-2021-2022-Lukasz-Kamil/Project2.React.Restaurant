@@ -14,18 +14,18 @@ export const editUser = async (id, email, password, name) => {
   try {
     await updateDoc(userDoc, newFields);
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }
 
   try {
     await updateEmail(user, email);
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }
 
   try {
     await updatePassword(user, password);
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }
 };

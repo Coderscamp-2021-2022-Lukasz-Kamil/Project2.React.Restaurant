@@ -7,6 +7,6 @@ export const removeUser = async (id) => {
   try {
     await deleteDoc(userDoc);
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   } 
 };

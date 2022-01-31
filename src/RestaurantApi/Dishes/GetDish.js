@@ -5,6 +5,6 @@ export const getDish = async(id) => {
     const dishesData = await getAllDishes();
     return dishesData.find(element => element.id === id);
   } catch (e) {
-      console.log(e);
+    console.error(e.message, e.name);
   }
 };

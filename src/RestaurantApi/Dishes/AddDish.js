@@ -16,7 +16,7 @@ export const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dis
       dish_is_vege: Boolean(dishIsVege),
     });
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }
 };
 
