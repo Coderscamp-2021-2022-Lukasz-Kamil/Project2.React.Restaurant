@@ -1,7 +1,7 @@
 import { db } from "../../firebase"
 import { collection, addDoc} from 'firebase/firestore'
 
-export const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dishDescription, dishIngredientsList, dishSpiciness, dishIsVege) => {
+const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dishDescription, dishIngredientsList, dishSpiciness, dishIsVege) => {
   const dishesCollectionRef = collection(db, 'dishes');
   try {
     console.log(dishName)
@@ -19,6 +19,8 @@ export const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dis
     console.error(e.message, e.name);
   }
 };
+
+export default addDish;
 
 
 

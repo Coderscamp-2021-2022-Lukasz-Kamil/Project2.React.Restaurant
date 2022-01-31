@@ -14,20 +14,27 @@ const addUserInfo = async (email, password, name, phoneNumber, accountType="user
       phone_number: phoneNumber, 
       account_type: accountType,
     });
+    
   } catch (e) {
-    console.log(e);
+    console.error(e.message, e.name);
   }
 };
 
-
-export const addUser = async (email, password, name, phoneNumber, accountType) => {
+const addUser = async (email, password, name, phoneNumber, accountType) => {
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    console.log(user.uid);
-    addUserInfo(email, password, name, phoneNumber, accountType, user.uid);
+    addUserInfo(email, password, name, phoneNumber, accountType, user.uid)
+    .then(() => {
+      console.log("The user was added");
+    })
+    .catch((e) => {
+      console.error(e.message, e.name);
+    });
   })
   .catch((e) => {
     console.error(e.message, e.name);
   });
 };
+
+export default addUser;

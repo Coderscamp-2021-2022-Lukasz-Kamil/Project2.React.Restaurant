@@ -1,7 +1,7 @@
 import { db } from "../../firebase"
 import { doc, deleteDoc } from 'firebase/firestore'
 
-export const removeUser = async (id) => {
+const removeUser = async (id) => {
   const userDoc = doc(db, "users", id);
 
   try {
@@ -10,3 +10,5 @@ export const removeUser = async (id) => {
     console.error(e.message, e.name);
   } 
 };
+
+export default removeUser;

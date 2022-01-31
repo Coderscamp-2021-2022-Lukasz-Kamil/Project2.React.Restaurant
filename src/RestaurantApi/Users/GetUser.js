@@ -1,10 +1,14 @@
-import { getAllUsers } from "./GetAllUsers";
+import { db } from "../../firebase"
+import { doc, getDoc } from 'firebase/firestore'
 
-export const getUser = async(user_id) => {
+const getUser = async(id) => {
+  const userRef = doc(db, 'users', id);
+
   try{
-    const dishesData = await getAllUsers();
-    return dishesData.find(element => element.user_id === user_id);
+    return await getDoc(userRef);
   } catch (e) {
       console.error(e.message, e.name);
   }
 };
+
+export default getUser;

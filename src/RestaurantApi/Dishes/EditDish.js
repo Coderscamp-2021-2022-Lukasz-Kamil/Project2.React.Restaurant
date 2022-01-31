@@ -1,7 +1,7 @@
 import { db } from "../../firebase"
 import { updateDoc, doc} from 'firebase/firestore'
 
-export const editDish = async (id, dishName, dishCost, dishCategory, dishImgLink, dishDescription, dishIngredientsList, dishSpiciness, dishIsVege) => {
+const editDish = async (id, dishName, dishCost, dishCategory, dishImgLink, dishDescription, dishIngredientsList, dishSpiciness, dishIsVege) => {
   const dishDoc = doc(db, "dishes", id);
   const newFields = {
     dish_name: dishName, 
@@ -19,3 +19,5 @@ export const editDish = async (id, dishName, dishCost, dishCategory, dishImgLink
     console.error(e.message, e.name);
   }
 };
+
+export default editDish;

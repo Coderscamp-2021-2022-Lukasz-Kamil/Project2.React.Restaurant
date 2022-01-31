@@ -1,10 +1,14 @@
-import { getAllDishes } from './GetAllDishes';
+import { db } from "../../firebase"
+import { doc, getDoc } from 'firebase/firestore'
 
-export const getDish = async(id) => {
+const getDish = async(id) => {
+  const dishRef = doc(db, 'dishes', id);
+
   try{
-    const dishesData = await getAllDishes();
-    return dishesData.find(element => element.id === id);
+    return await getDoc(dishRef);
   } catch (e) {
     console.error(e.message, e.name);
   }
 };
+
+export default getDish;
