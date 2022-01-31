@@ -16,6 +16,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import "./App.css";
 import DishForm from "./components/AdminPage/DishForm/DishForm";
 
+
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
 

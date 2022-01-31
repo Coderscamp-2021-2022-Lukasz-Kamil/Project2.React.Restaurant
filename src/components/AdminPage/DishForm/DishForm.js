@@ -4,24 +4,24 @@ import {
   Button,
   Form,
   FormGroup,
-  FormControl,
   FormSelect,
   Image,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./DishForm.module.css";
+import DishFormControl from "./DishFormControl";
 // import { addDish } from "../../RestaurantApi/Dishes/AddDish";
 // import { editDish } from "../../RestaurantApi/Dishes/EditDish";
 // import { getDish } from "../../RestaurantApi/Dishes/GetDish";
 
 
 const DishForm = (props)  => {
-  const [name, setName] = useState();
-  const [cost, setCost] = useState();
+  const [name, setName] = useState('');
+  const [cost, setCost] = useState('');
   const [category, setCategory] = useState('Category');
-  const [imgLink, setImgLink] = useState();
-  const [description, setDescription] = useState();
-  const [ingredients, setIngredients] = useState();
+  const [imgLink, setImgLink] = useState('');
+  const [description, setDescription] = useState('');
+  const [ingredients, setIngredients] = useState('');
   const [spiciness, setSpiciness] = useState(0);
   const [isVege, setIsVege] = useState(false);
 
@@ -44,14 +44,10 @@ const DishForm = (props)  => {
   // }, []);
 
   // const updateDish = () => {
-  //   console.log(name);
-      
   //   editDish(props.id, name, cost, category, imgLink, description, ingredients, spiciness, isVege);
   // };
 
   // const createDish = () => {
-  //   console.log(name);
-    
   //   addDish(name, cost, category, imgLink, description, ingredients, spiciness, isVege);
   // };
 
@@ -76,7 +72,7 @@ const DishForm = (props)  => {
     setDescription(event.target.value);
   };
 
-  const ingredientListChangeHandler = (event) => {
+  const ingredientsChangeHandler = (event) => {
     setIngredients(event.target.value);
   };
 
@@ -124,58 +120,16 @@ const DishForm = (props)  => {
             value={category}
             required
           >
-            <option hidden value="Category" disabled id="placeholder" >Category</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Soup">Soup</option>
-            <option value="Pasta">Pasta</option>
-            <option value="Dessert">Dessert</option>
-            <option value="Starter">Starter</option>
+            <option hidden disabled id="placeholder" >Category</option>
+            {["Pizza","Soup","Pasta","Dessert","Starter"].map((category) => {
+              return <option value={category} key={category}>{category}</option>
+            })}
           </FormSelect>
-          <FormControl
-            className={`p-2 mb-3 shadow-none text-white ${styles.input}`}
-            style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
-            placeholder="Dish name"
-            type="text"
-            value={name}
-            onChange={nameChangeHandler}
-            required
-          ></FormControl>
-          <FormControl
-            className={`p-2 mb-3 shadow-none text-white ${styles.input}`}
-            style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
-            placeholder="Ingredients"
-            type="text"
-            value={ingredients}
-            onChange={ingredientListChangeHandler}
-            required
-          ></FormControl>
-          <FormControl
-            className={`p-2 mb-3 shadow-none text-white ${styles.input}`}
-            style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
-            placeholder="Description"
-            type="text"
-            value={description}
-            onChange={descriptionChangeHandler}
-            required
-          ></FormControl>
-          <FormControl
-            className={`p-2 mb-3 shadow-none text-white ${styles.input}`}
-            style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
-            placeholder="Price"
-            type="text"
-            value={cost}
-            onChange={costChangeHandler}
-            required
-          ></FormControl>
-          <FormControl
-            className={`p-2 mb-3 shadow-none text-white ${styles.input}`}
-            style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}
-            placeholder="Picture's link"
-            type="text"
-            value={imgLink}
-            onChange={imgLinkChangeHandler}
-            required
-          ></FormControl>
+          <DishFormControl value={name} onChange={nameChangeHandler} placeholder={"Dish name"}/>
+          <DishFormControl value={ingredients} onChange={ingredientsChangeHandler} placeholder={"Ingredients"}/>
+          <DishFormControl value={description} onChange={descriptionChangeHandler} placeholder={"Description"}/>
+          <DishFormControl value={cost} onChange={costChangeHandler} placeholder={"Price"}/>
+          <DishFormControl value={imgLink} onChange={imgLinkChangeHandler} placeholder={"Picture's link"}/>
         </FormGroup>
         <FormGroup
           className={`d-flex align-items-center justify-content-between ${styles.bottomBox}`}
