@@ -26,3 +26,9 @@
 		max-height: 16rem;
 	}
 }
+
+@media (orientation: landscape) and (max-width: 590px){
+  .about {
+    font-size: 0.75rem;
+  }
+}
