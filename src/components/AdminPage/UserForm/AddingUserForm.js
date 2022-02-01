@@ -12,7 +12,7 @@ import { useState } from "react";
 const AddingUserForm = ({ addUser }) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredPhone, setEnteredPhone] = useState("");
+  const [enteredPhone, setEnteredPhone] = useState("+48");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordTouched, setPasswordTouched] = useState(false);
   const [phoneTouched, setPhoneTouched] = useState(false);
@@ -25,8 +25,13 @@ const AddingUserForm = ({ addUser }) => {
     setEnteredEmail(event.target.value);
   };
   const enteredPhoneHandler = (event) => {
-    const onlyDigits = event.target.value.replace(/\D/g, "");
-    setEnteredPhone(onlyDigits);
+    const rawInput = event.target.value;
+    const onlyDigits = rawInput
+      .substring(3, rawInput.length)
+      .replace(/\D/g, "");
+
+    setEnteredPhone("+48".concat(onlyDigits));
+
     setPhoneTouched(true);
   };
 
@@ -106,7 +111,7 @@ const AddingUserForm = ({ addUser }) => {
             value={enteredPhone}
             onChange={enteredPhoneHandler}
             pattern="^[0-9]*$"
-            maxLength={13}
+            maxLength={12}
             required
           ></FormControl>
           {checkIfPhoneIsTooShort() && <p>Your phone number is too short</p>}
