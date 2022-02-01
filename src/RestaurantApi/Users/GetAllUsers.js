@@ -7,8 +7,8 @@ const getAllUsers = async () => {
   try {
     const data = await getDocs(usersCollectionRef);
     return data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-  } catch (e) {
-    console.error(e.message, e.name);
+  } catch (err) {
+    throw new Error("Server Error");
   }      
 };
 

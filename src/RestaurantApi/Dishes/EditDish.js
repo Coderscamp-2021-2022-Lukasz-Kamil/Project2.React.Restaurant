@@ -15,8 +15,8 @@ const editDish = async (id, dishName, dishCost, dishCategory, dishImgLink, dishD
   };
   try {
     await updateDoc(dishDoc, newFields);
-  } catch (e) {
-    console.error(e.message, e.name);
+  } catch (err) {
+    throw new Error("Server Error, dish wasn't edited");
   }
 };
 

@@ -6,8 +6,8 @@ const deleteDish = async (id) => {
 
   try {
     await deleteDoc(dishDoc);
-  } catch (e) {
-    console.error(e.message, e.name);
+  } catch (err) {
+    throw new Error("Server Error, dish wasn't deleted");
   } 
 };
 

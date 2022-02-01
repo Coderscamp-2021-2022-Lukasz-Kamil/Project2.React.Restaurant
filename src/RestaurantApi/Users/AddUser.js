@@ -3,7 +3,7 @@ import { collection, addDoc} from 'firebase/firestore'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
-const addUserInfo = async (email, password, name, phoneNumber, accountType="user", id) => {
+const addUserInfo = async (email, name, phoneNumber, accountType="user", id) => {
   const usersCollectionRef = collection(db, 'users');
 
   try {
@@ -15,26 +15,20 @@ const addUserInfo = async (email, password, name, phoneNumber, accountType="user
       account_type: accountType,
     });
     
-  } catch (e) {
-    console.error(e.message, e.name);
+  } catch (err) {
+    throw new Error("Server Error");
   }
 };
 
 const addUser = async (email, password, name, phoneNumber, accountType) => {
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    addUserInfo(email, password, name, phoneNumber, accountType, user.uid)
-    .then(() => {
-      console.log("The user was added");
-    })
-    .catch((e) => {
-      console.error(e.message, e.name);
-    });
-  })
-  .catch((e) => {
-    console.error(e.message, e.name);
-  });
+    await addUserInfo(email, password, name, phoneNumber, accountType, user.uid);
+    console.log("User was sucessfully added")
+  } catch (err) {
+    throw new Error("Server Error, user wasn't added");
+  };
 };
 
 export default addUser;

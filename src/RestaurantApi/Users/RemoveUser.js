@@ -6,8 +6,8 @@ const removeUser = async (id) => {
 
   try {
     await deleteDoc(userDoc);
-  } catch (e) {
-    console.error(e.message, e.name);
+  } catch (err) {
+    throw new Error("Server Error, dish wasn't deleted");;
   } 
 };
 

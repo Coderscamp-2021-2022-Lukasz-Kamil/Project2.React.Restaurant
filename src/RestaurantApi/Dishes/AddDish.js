@@ -15,8 +15,8 @@ const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dishDescri
       dish_spiciness: Number(dishSpiciness),
       dish_is_vege: Boolean(dishIsVege),
     });
-  } catch (e) {
-    console.error(e.message, e.name);
+  } catch (err) {
+    throw new Error("Server Error, dish wasn't added");
   }
 };
 
