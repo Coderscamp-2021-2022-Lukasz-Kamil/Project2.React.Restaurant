@@ -13,6 +13,7 @@ import NotFound from "./components/NotFoundPage/NotFoundPage";
 import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
 import { useCookies } from "react-cookie";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import "./App.css";
 
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
