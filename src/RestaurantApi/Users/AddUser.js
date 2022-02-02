@@ -25,7 +25,7 @@ const addUser = async (email, password, name, phoneNumber, accountType) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     await addUserInfo(email, password, name, phoneNumber, accountType, user.uid);
-    console.log("User was sucessfully added")
+    return "User was sucessfully added";
   } catch (err) {
     throw new Error("Server Error, user wasn't added");
   };

@@ -4,7 +4,6 @@ import { collection, addDoc} from 'firebase/firestore'
 const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dishDescription, dishIngredientsList, dishSpiciness, dishIsVege) => {
   const dishesCollectionRef = collection(db, 'dishes');
   try {
-    console.log(dishName)
     await addDoc(dishesCollectionRef, {
       dish_name: dishName, 
       dish_cost: Number(dishCost), 
@@ -15,6 +14,7 @@ const addDish = async (dishName, dishCost, dishCategory, dishImgLink, dishDescri
       dish_spiciness: Number(dishSpiciness),
       dish_is_vege: Boolean(dishIsVege),
     });
+    return "Dish was sucessfully added";
   } catch (err) {
     throw new Error("Server Error, dish wasn't added");
   }

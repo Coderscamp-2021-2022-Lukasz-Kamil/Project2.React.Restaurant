@@ -9,6 +9,7 @@ const editUser = async (id, email, password, name) => {
 
   try {
     await updateUser(id, newFields);
+    return "User was sucessfully edited";
   } catch (err) {
     throw new Error("Server Error, user wasn't edited");
   }
