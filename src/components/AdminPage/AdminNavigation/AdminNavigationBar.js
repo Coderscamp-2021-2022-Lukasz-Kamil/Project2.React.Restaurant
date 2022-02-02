@@ -4,7 +4,8 @@ import { Nav, Navbar, Image, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import AdminMenuMobile from "./AdminMenuMobile";
 import AdminSideBar from "./AdminSideBar";
-import SignOutMobile from "../AdminSignOut/SignOutMobile"
+import SignOutMobile from "../AdminSignOut/SignOutMobile";
+import LoggedAs from "./LoggedAs";
 
 const AdminNavigationBar = () => {
 	return (
@@ -17,6 +18,7 @@ const AdminNavigationBar = () => {
 							src={RestaurantLogo}
 							alt='restaurant logo'></Image>
 						<Title />
+						<LoggedAs />
 					</Nav>
 					<Nav className=' justify-content-end d-md-none d-flex align-items-center'>
 						<Image
