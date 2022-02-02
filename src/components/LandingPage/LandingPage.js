@@ -5,15 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const LandingPage = () => {
 	return (
-		<>
 			<div
 				style={{
 					backgroundImage: `url(${background})`,
 					backgroundRepeat: "no-repeat",
 					backgroundPosition: "center",
 					backgroundSize: "cover",
-					height: "100vh",
-					overflowY: "auto",
+					height: "100vh"
 				}}>
 				<div className='container-fluid bg-transparent text-white text-center d-flex flex-column justify-content-center align-items-center vh-100 pt-5'>
 					<Card.Title
@@ -43,7 +41,6 @@ const LandingPage = () => {
 					</Card.Body>
 				</div>
 			</div>
-		</>
 	);
 };
 
