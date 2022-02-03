@@ -1,7 +1,29 @@
 import { Row, Col, Button, Container } from "react-bootstrap";
 import styles from "./NewUser.module.css";
+import removeUser from "../../../RestaurantApi/Users/RemoveUser";
+import getAllUsers from "../../../RestaurantApi/Users/GetAllUsers";
+import { useEffect, useState } from "react";
 
 const NewUser = ({ users }) => {
+  const [allUsers, setAllUsers] = useState([]);
+  const [isReloaded, setIsReloaded] = useState({});
+  const removingUser = (id) => {
+    removeUser(id).then(() => setIsReloaded({}));
+  };
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const savedUsers = await getAllUsers();
+      setAllUsers(savedUsers);
+    };
+    const savedUsers = getUsers().catch(
+      (e) => {
+        throw new Error(e.message);
+      },
+      [users, isReloaded]
+    );
+  });
+
   return (
     <Container
       className="d-flex w-100 flex-wrap text-center pt-3 align-items-start justify-content-center"
@@ -13,26 +35,29 @@ const NewUser = ({ users }) => {
         paddingRight: "0",
       }}
     >
-      {users.map((user) => (
+      {allUsers.map((user) => (
         <Row
           className={`${styles.usersContainer} w-100 mh-25 mt-2 align-self-start align-items-center p-0 m-0 justify-content-center`}
           key={user.email}
         >
           <Col className="col-sm-3">{user.name}</Col>
-          <Col className="col-sm-3">User</Col>
+          <Col className="col-sm-3">{user.account_type}</Col>
           <Col className={`${styles.emailColumn} col-sm-4`}>{user.email}</Col>
           <Col className="col-sm-2 justify-content-end ">
-            <Button
-              className={` ${styles.deleteButton} shadow border-0`}
-              style={{
-                backgroundColor: "red",
-                fontSize: "clamp(0.6rem, 3vw, 1.1rem)",
-                fontWeight: "bold",
-              }}
-              type="button"
-            >
-              Delete
-            </Button>
+            {user.account_type !== "admin" && (
+              <Button
+                className={` ${styles.deleteButton} shadow border-0`}
+                style={{
+                  backgroundColor: "red",
+                  fontSize: "clamp(0.6rem, 3vw, 1.1rem)",
+                  fontWeight: "bold",
+                }}
+                type="button"
+                onClick={() => removingUser(user.id)}
+              >
+                Delete
+              </Button>
+            )}
           </Col>
         </Row>
       ))}

@@ -8,6 +8,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./AddingUserForm.module.css";
 import { useState } from "react";
+import saveUser from "../../../RestaurantApi/Users/AddUser";
 
 const AddingUserForm = ({ addUser }) => {
   const [enteredName, setEnteredName] = useState("");
@@ -46,7 +47,7 @@ const AddingUserForm = ({ addUser }) => {
     const newUserData = {
       name: enteredName,
       email: enteredEmail,
-      phone: enteredPhone,
+      phoneNumber: enteredPhone,
       password: enteredPassword,
     };
 
@@ -73,6 +74,10 @@ const AddingUserForm = ({ addUser }) => {
 
   const checkIfPhoneIsTooShort = () => {
     return phoneTouched && enteredPhone.length < 9;
+  };
+
+  const createdUser = () => {
+    saveUser(enteredEmail, enteredPassword, enteredName, enteredPhone, "user");
   };
 
   return (
@@ -110,7 +115,6 @@ const AddingUserForm = ({ addUser }) => {
             type="tel"
             value={enteredPhone}
             onChange={enteredPhoneHandler}
-            pattern="^[0-9]*$"
             maxLength={12}
             required
           ></FormControl>
@@ -142,6 +146,7 @@ const AddingUserForm = ({ addUser }) => {
           }}
           type="submit"
           disabled={!isValid}
+          onClick={createdUser}
         >
           <img
             src="/icons/plus_icon.png"
