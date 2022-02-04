@@ -1,28 +1,26 @@
 import { Row, Col, Button, Container } from "react-bootstrap";
-import styles from "./NewUser.module.css";
+import styles from "./Users.module.css";
 import removeUser from "../../../RestaurantApi/Users/RemoveUser";
 import getAllUsers from "../../../RestaurantApi/Users/GetAllUsers";
 import { useEffect, useState } from "react";
 
-const NewUser = ({ users }) => {
+const Users = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [isReloaded, setIsReloaded] = useState({});
   const removingUser = (id) => {
     removeUser(id).then(() => setIsReloaded({}));
   };
 
-  useEffect(() => {
-    const getUsers = async () => {
-      const savedUsers = await getAllUsers();
+  const getUsers = async () => {
+    const savedUsers = await getAllUsers();
+    try {
       setAllUsers(savedUsers);
-    };
-    const savedUsers = getUsers().catch(
-      (e) => {
-        throw new Error(e.message);
-      },
-      [users, isReloaded]
-    );
-  });
+    } catch (e) {
+      throw new Error(e.message);
+    }
+  };
+
+  useEffect(() => getUsers(), [allUsers, isReloaded]);
 
   return (
     <Container
@@ -38,7 +36,7 @@ const NewUser = ({ users }) => {
       {allUsers.map((user) => (
         <Row
           className={`${styles.usersContainer} w-100 mh-25 mt-2 align-self-start align-items-center p-0 m-0 justify-content-center`}
-          key={user.email}
+          key={user.id}
         >
           <Col className="col-sm-3">{user.name}</Col>
           <Col className="col-sm-3">{user.account_type}</Col>
@@ -64,4 +62,4 @@ const NewUser = ({ users }) => {
     </Container>
   );
 };
-export default NewUser;
+export default Users;

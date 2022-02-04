@@ -17,13 +17,19 @@ const AddingUserForm = ({ addUser }) => {
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordTouched, setPasswordTouched] = useState(false);
   const [phoneTouched, setPhoneTouched] = useState(false);
-  const isValid = enteredPassword != null && enteredPassword.trim().length > 5;
+  const [emailTouched, setEmailTouched] = useState(false);
+  const isValid =
+    enteredPassword != null &&
+    enteredPassword.trim().length > 5 &&
+    enteredPhone.trim().length === 12 &&
+    enteredEmail.match(emailFormat);
 
   const enteredNameHandler = (event) => {
     setEnteredName(event.target.value);
   };
   const enteredEmailHandler = (event) => {
     setEnteredEmail(event.target.value);
+    setEmailTouched(true);
   };
   const enteredPhoneHandler = (event) => {
     const rawInput = event.target.value;
@@ -59,6 +65,7 @@ const AddingUserForm = ({ addUser }) => {
     setEnteredPassword("");
     setPasswordTouched(false);
     setPhoneTouched(false);
+    setEmailTouched(false);
   };
 
   const isPasswordValid = (event) => {
@@ -73,7 +80,13 @@ const AddingUserForm = ({ addUser }) => {
   };
 
   const checkIfPhoneIsTooShort = () => {
-    return phoneTouched && enteredPhone.length < 9;
+    return phoneTouched && enteredPhone.length < 12;
+  };
+
+  let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  const checkIfEmailIsValid = () => {
+    return emailTouched && !enteredEmail.match(emailFormat);
   };
 
   const createdUser = () => {
@@ -108,6 +121,9 @@ const AddingUserForm = ({ addUser }) => {
             onChange={enteredEmailHandler}
             required
           ></FormControl>
+          {checkIfEmailIsValid() && (
+            <p>Required e-mail format: sth@gmail.com</p>
+          )}
           <FormControl
             className={`mt-2 p-2 shadow-none text-white ${styles.input}`}
             style={{ backgroundColor: "#5E5B5B", borderColor: "transparent" }}

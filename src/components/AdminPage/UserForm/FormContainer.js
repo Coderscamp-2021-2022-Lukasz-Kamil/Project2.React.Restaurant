@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import NewUser from "./NewUser";
+import Users from "./Users";
 import AddingUserForm from "./AddingUserForm";
 import styles from "./FormContainer.module.css";
 import { useState } from "react";
@@ -20,7 +20,7 @@ const FormContainer = () => {
       }}
     >
       <AddingUserForm addUser={addUser} />
-      <NewUser users={users} />
+      <Users users={users} />
     </Container>
   );
 };

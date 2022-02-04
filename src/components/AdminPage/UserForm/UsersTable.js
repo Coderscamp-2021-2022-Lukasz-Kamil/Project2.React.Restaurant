@@ -1,6 +1,6 @@
 import styles from "./UsersTable.module.css";
 import { Row, Col, Container } from "react-bootstrap";
-import NewUser from "./NewUser";
+import Users from "./Users";
 
 const UsersTable = ({ users }) => {
   return (
@@ -28,7 +28,7 @@ const UsersTable = ({ users }) => {
         <Col className={`${styles.emailColumn} col-sm-4`}>E-mail</Col>
         <Col className="col-sm-2">Action</Col>
       </Row>
-      <NewUser />
+      <Users />
     </Container>
   );
 };
