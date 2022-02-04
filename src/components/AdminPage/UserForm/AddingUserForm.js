@@ -18,11 +18,6 @@ const AddingUserForm = ({ addUser }) => {
   const [passwordTouched, setPasswordTouched] = useState(false);
   const [phoneTouched, setPhoneTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
-  const isValid =
-    enteredPassword != null &&
-    enteredPassword.trim().length > 5 &&
-    enteredPhone.trim().length === 12 &&
-    enteredEmail.match(emailFormat);
 
   const enteredNameHandler = (event) => {
     setEnteredName(event.target.value);
@@ -88,6 +83,12 @@ const AddingUserForm = ({ addUser }) => {
   const checkIfEmailIsValid = () => {
     return emailTouched && !enteredEmail.match(emailFormat);
   };
+
+  const isValid =
+    enteredPassword != null &&
+    enteredPassword.trim().length > 5 &&
+    enteredPhone.trim().length === 12 &&
+    enteredEmail.match(emailFormat);
 
   const createdUser = () => {
     saveUser(enteredEmail, enteredPassword, enteredName, enteredPhone, "user");
