@@ -12,11 +12,11 @@ const Users = () => {
   };
 
   const getUsers = async () => {
-    const savedUsers = await getAllUsers();
     try {
+      const savedUsers = await getAllUsers();
       setAllUsers(savedUsers);
-    } catch (e) {
-      throw new Error(e.message);
+    } catch (error) {
+      console.error(error);
     }
   };
 
