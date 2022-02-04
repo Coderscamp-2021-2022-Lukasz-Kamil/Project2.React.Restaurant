@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Button,
@@ -10,9 +10,9 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./DishForm.module.css";
 import DishFormControl from "./DishFormControl";
-// import { addDish } from "../../RestaurantApi/Dishes/AddDish";
-// import { editDish } from "../../RestaurantApi/Dishes/EditDish";
-// import { getDish } from "../../RestaurantApi/Dishes/GetDish";
+import addDish from "../../../RestaurantApi/Dishes/AddDish";
+import editDish from "../../../RestaurantApi/Dishes/EditDish";
+import getDish from "../../../RestaurantApi/Dishes/GetDish";
 
 
 const DishForm = (props)  => {
@@ -24,32 +24,42 @@ const DishForm = (props)  => {
   const [ingredients, setIngredients] = useState('');
   const [spiciness, setSpiciness] = useState(0);
   const [isVege, setIsVege] = useState(false);
+  const [isValid, setIsValid] = useState(true);
+  const [communicate, setCommunicate] = useState('');
 
-  // const isEditingMode = props.id;
+  const isEditingMode = props.id;
+  
+  const setDefaultValues = () => {
+    setName('');
+    setCost('');
+    setCategory('Category');
+    setImgLink('');
+    setDescription('');
+    setIngredients('');
+    setSpiciness(0);
+    setIsVege(false);
+    setIsValid(true);
+  }
 
-  // useEffect(() => {
-  //   if (isEditingMode) {
-  //     getDish(props.id).then(data => {
-  //       setName(data.dish_name);
-  //       setCost(data.dish_cost);
-  //       setCategory(data.dish_category);
-  //       setImgLink(data.dish_img_link);
-  //       setDescription(data.dish_description);
-  //       setIngredients(data.dish_ingredient_list);
-  //       setSpiciness(data.dish_spiciness);
-  //       setIsVege(data.dish_is_vege);
+  const updateDish = () => {
+    if (!name || !cost || !imgLink || !description || !ingredients || (category==="Category")) {
+      setIsValid(false);
+    } else {
+      editDish("4Qs9wbWXRD33AzIGKqhD", name, cost, category, imgLink, description, ingredients, spiciness, isVege);
+      setDefaultValues();
+      setCommunicate('Dish was edited!'); 
+    };
+  };
 
-  //     });
-  //   }
-  // }, []);
-
-  // const updateDish = () => {
-  //   editDish(props.id, name, cost, category, imgLink, description, ingredients, spiciness, isVege);
-  // };
-
-  // const createDish = () => {
-  //   addDish(name, cost, category, imgLink, description, ingredients, spiciness, isVege);
-  // };
+  const createDish = () => {
+    if (!name || !cost || !imgLink || !description || !ingredients || (category==="Category")) {
+      setIsValid(false);
+    } else {
+      addDish(name, cost, category, imgLink, description, ingredients, spiciness, isVege);
+      setDefaultValues();
+      setCommunicate('Dish was added!');   
+    };
+  };
 
   const nameChangeHandler = (event) => {
     setName(event.target.value);
@@ -99,6 +109,21 @@ const DishForm = (props)  => {
   const isVegeChangeHandler = () => {
     setIsVege(!isVege);
   };
+
+  useEffect(() => {
+    if (isEditingMode) {
+      getDish(props.id).then(data => {
+        setName(data.dish_name);
+        setCost(data.dish_cost);
+        setCategory(data.dish_category);
+        setImgLink(data.dish_img_link);
+        setDescription(data.dish_description);
+        setIngredients(data.dish_ingredient_list);
+        setSpiciness(data.dish_spiciness);
+        setIsVege(data.dish_is_vege);
+      });
+    }
+  }, []);
   
   return (
     <Container>
@@ -131,6 +156,7 @@ const DishForm = (props)  => {
           <DishFormControl value={cost} onChange={costChangeHandler} placeholder={"Price"}/>
           <DishFormControl value={imgLink} onChange={imgLinkChangeHandler} placeholder={"Picture's link"}/>
         </FormGroup>
+        {isValid ? communicate : <p style={{color: "red"}}>Some fields are empty!</p>}
         <FormGroup
           className={`d-flex align-items-center justify-content-between ${styles.bottomBox}`}
           style={{ minWidth: "50%"}}
@@ -184,8 +210,8 @@ const DishForm = (props)  => {
             </Button>
           </FormGroup>
           <Button
-            // onClick={isEditingMode ? updateDish : createDish}
-            className={` shadow-none`}
+            onClick={isEditingMode ? updateDish : createDish}
+            className={`shadow-none`}
             style={{backgroundColor: "transparent", borderColor: "transparent", borderRadius: "100px", padding: "0px"}}
           >
             <img
