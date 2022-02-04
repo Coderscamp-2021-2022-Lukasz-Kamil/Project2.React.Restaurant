@@ -4,6 +4,7 @@ import { signOut } from "firebase/auth";
 import { useCookies } from "react-cookie";
 import Cart from "../../Modal/Cart";
 import { useState } from "react";
+import FormContainer from "../UserForm/FormContainer";
 
 const AdminHome = () => {
   const [, , removeCookie] = useCookies(["isSignedIn"]);
@@ -31,12 +32,13 @@ const AdminHome = () => {
 
   return (
     <div>
-      <div>AdminHome</div>
+      <span>AdminHome</span>
       <button type="submit" onClick={() => signOutUser()}>
         Sign out
       </button>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <button onClick={showCartHandler}>Modal</button>
+      <FormContainer />
     </div>
   );
 };
