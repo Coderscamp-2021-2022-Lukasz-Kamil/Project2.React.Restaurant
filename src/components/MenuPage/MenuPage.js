@@ -1,31 +1,38 @@
-import React, {useState} from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import {Container} from "react-bootstrap";
 import ToggleSwitch from "./ToggleSwitch";
 import  "./MenuPage.css"
 import MenuCategories from "./MenuCategiories";
 import MenuDishes from "./MenuDishes";
-import items from "./MenuList"
-
-
-const allCategories = ['All', ...new Set(items.map(item => item.category))];
+import getAllDishes  from "../../RestaurantApi/Dishes/GetAllDishes";
 
 
 const MenuPage = () => {
-  const [menuItem, setMenuItem] = useState(items);
-  const [buttons, setButtons] = useState(allCategories);
+  const [buttons, setButtons] = useState([]);
+  const [dishes, setDishes] = useState([]);
+  const [primalDishes, setPrimalDishes] = useState([]);
   
   const filter = (button) =>{
-
+    
     if(button === 'All'){
-      setMenuItem(items);
+      setDishes(primalDishes);
       return;
     }
-
-    const filteredData = items.filter(item => item.category ===  button);
-    setMenuItem(filteredData)
+    
+    const filteredData = primalDishes.filter(item => item.dish_category ===  button);
+    setDishes(filteredData)
   }
+  
 
+  useLayoutEffect(() => {
+    getAllDishes().then(data => {
+      setPrimalDishes(data);
+      setDishes(data);
+      setButtons(['All', ...new Set(data.map(item => item.dish_category))])
+    });
+  }, []);
+  
 
   return (
     <div className="background">
@@ -42,9 +49,7 @@ const MenuPage = () => {
         </React.Fragment>
       </Container>
       <Container fluid className="dishes-card-container">
-
-          <MenuDishes menuItem={menuItem} />
-
+          <MenuDishes dishes={dishes} />
       </Container>
     </div>
   );
