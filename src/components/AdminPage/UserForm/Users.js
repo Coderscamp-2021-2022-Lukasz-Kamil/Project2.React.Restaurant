@@ -20,7 +20,7 @@ const Users = () => {
     }
   };
 
-  useEffect(() => getUsers(), [allUsers, isReloaded]);
+  useEffect(() => getUsers(), [isReloaded]);
 
   return (
     <Container
