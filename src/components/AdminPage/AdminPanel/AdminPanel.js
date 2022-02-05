@@ -17,6 +17,8 @@ import Title from "../../Title/Title";
 const AdminPanel = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [invalidLoginData, setInvalidLoginData] = useState(false);
+  const [retrying, setRetrying] = useState(false);
   const [, setCookie] = useCookies(["isSignedIn"]);
   const navigate = useNavigate();
 
@@ -31,8 +33,19 @@ const AdminPanel = () => {
         navigation();
       })
       .catch((err) => {
-        alert("Invalid e-mail or password!");
+        setInvalidLoginData(true);
+        setRetrying(false);
       });
+  };
+
+  const onEmailChangedHandler = (e) => {
+    setEmail(e.target.value);
+    setRetrying(true);
+  };
+
+  const onPasswordChangedHandler = (e) => {
+    setPassword(e.target.value);
+    setRetrying(true);
   };
 
   return (
@@ -63,7 +76,7 @@ const AdminPanel = () => {
                 type="email"
                 placeholder="e-mail"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={onEmailChangedHandler}
               />
             </InputGroup>
           </FormGroup>
@@ -82,10 +95,11 @@ const AdminPanel = () => {
                 type="password"
                 placeholder="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={onPasswordChangedHandler}
               />
             </InputGroup>
           </FormGroup>
+          {invalidLoginData && !retrying && <p>Invalid login credentials!</p>}
           <Button
             className={`p-2 rounded text-uppercase mt-2 shadow ${styles.signInButton} ${styles.form}`}
             style={{
