@@ -1,0 +1,41 @@
+::placeholder {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-family: Rufina;
+  text-transform: unset;
+  letter-spacing: 1.2px;
+  opacity: 0.5 !important;
+  color: #c4c4c4 !important;
+}
+
+.signInButton:hover {
+  background-color: #e48b25 !important;
+  border-color: #e1651f !important;
+}
+
+.input:hover {
+  border-color: #e48b25 !important;
+}
+
+@media (max-width: 767px) {
+  .inputsContainer {
+    background-color: #fff !important;
+  }
+
+  .input {
+    min-width: 99vw !important;
+  }
+
+  .signInButton {
+    max-height: 4vh !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .input {
+    min-width: 50vw !important;
+  }
+
+  .signInButton {
+    max-height: 4vh !important;
+  }
+}
