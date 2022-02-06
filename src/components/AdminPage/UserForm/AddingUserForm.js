@@ -45,15 +45,6 @@ const AddingUserForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // const newUserData = {
-    //   name: enteredName,
-    //   email: enteredEmail,
-    //   phoneNumber: enteredPhone,
-    //   password: enteredPassword,
-    // };
-
-    // addUser(newUserData);
-
     setEnteredName("");
     setEnteredEmail("");
     setEnteredPhone("");

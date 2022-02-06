@@ -9,7 +9,14 @@ const Users = (props) => {
   const [allUsers, setAllUsers] = useState([]);
   const [isReloaded, setIsReloaded] = useState({});
   const [cartIsShown, setCartIsShown] = useState(false);
-  const [refreshUsersList, setRefreshUsersList] = useState({});
+  const [clickedUserId, setClickedUserId] = useState();
+
+  const setClickedIdAndShowCart = (id) => {
+    return () => {
+      showCartHandler();
+      setClickedUserId(id);
+    };
+  };
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -37,7 +44,6 @@ const Users = (props) => {
   };
 
   useEffect(() => getUsers(), [isReloaded, props.onUsersAdded]);
-  console.log(allUsers);
 
   return (
     <Container
@@ -53,7 +59,7 @@ const Users = (props) => {
       {cartIsShown && (
         <Cart
           onClose={hideCartHandler}
-          onConfirm={createRemoveUserFunction()}
+          onConfirm={createRemoveUserFunction(clickedUserId)}
         />
       )}
       {allUsers.map((user) => (
@@ -74,7 +80,7 @@ const Users = (props) => {
                   fontWeight: "bold",
                 }}
                 type="button"
-                onClick={showCartHandler}
+                onClick={setClickedIdAndShowCart(user.id)}
               >
                 Delete
               </Button>

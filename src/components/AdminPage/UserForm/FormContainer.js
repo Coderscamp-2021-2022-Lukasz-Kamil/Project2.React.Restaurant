@@ -5,12 +5,7 @@ import styles from "./FormContainer.module.css";
 import { useState } from "react";
 
 const FormContainer = () => {
-  // const [users, setUsers] = useState([]);
   const [isNewUserAdded, setIsUserAdded] = useState({});
-
-  // const addUser = (user) => {
-  //   setUsers((previous) => [...previous, user]);
-  // };
 
   return (
     <Container

@@ -2,7 +2,6 @@ import { db } from "../../firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 
 const removeUser = async (id) => {
-  console.log("user removal triggered");
   const userDoc = doc(db, "users", id);
 
   try {

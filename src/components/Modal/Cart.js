@@ -2,11 +2,10 @@ import Modal from "./Modal";
 import classes from "./Cart.module.css";
 
 const Cart = (props) => {
-  console.log(props);
   return (
     <Modal>
       <div className={classes.total}>
-        <span>Are you sure you want to permanently remove this item?</span>
+        <span>Are you sure you want to permanently remove this user?</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={props.onConfirm}>
