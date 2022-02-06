@@ -5,10 +5,11 @@ import getAllUsers from "../../../RestaurantApi/Users/GetAllUsers";
 import { useEffect, useState } from "react";
 import Cart from "../../Modal/Cart";
 
-const Users = () => {
+const Users = (props) => {
   const [allUsers, setAllUsers] = useState([]);
   const [isReloaded, setIsReloaded] = useState({});
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [refreshUsersList, setRefreshUsersList] = useState({});
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -35,7 +36,7 @@ const Users = () => {
     }
   };
 
-  useEffect(() => getUsers(), [isReloaded]);
+  useEffect(() => getUsers(), [isReloaded, props.onUsersAdded]);
   console.log(allUsers);
 
   return (

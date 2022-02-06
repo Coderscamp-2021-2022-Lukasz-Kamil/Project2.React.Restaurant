@@ -5,11 +5,12 @@ import styles from "./FormContainer.module.css";
 import { useState } from "react";
 
 const FormContainer = () => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  const [isNewUserAdded, setIsUserAdded] = useState({});
 
-  const addUser = (user) => {
-    setUsers((previous) => [...previous, user]);
-  };
+  // const addUser = (user) => {
+  //   setUsers((previous) => [...previous, user]);
+  // };
 
   return (
     <Container
@@ -19,8 +20,8 @@ const FormContainer = () => {
         minHeight: "90vh",
       }}
     >
-      <AddingUserForm addUser={addUser} />
-      <Users users={users} />
+      <AddingUserForm onUsersAdded={setIsUserAdded} />
+      <Users onUsersAdded={isNewUserAdded} />
     </Container>
   );
 };
