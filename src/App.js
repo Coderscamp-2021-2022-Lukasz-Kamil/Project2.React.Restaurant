@@ -8,7 +8,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import ContactPage from "./components/ContactPage/ContactPage";
 import MenuPage from "./components/MenuPage/MenuPage";
 import AdminPanel from "./components/AdminPage/AdminPanel/AdminPanel";
-import AdminHome from "./components/AdminPage/AdminNavigation/AdminHome";
+import AdminHome from "./components/AdminPage/AdminHome/AdminHome";
 import AdminMenu from "./components/AdminPage/AdminMenu/AdminMenu";
 import AdminMembers from "./components/AdminPage/AdminMembers/AdminMembers";
 import NotFound from "./components/NotFoundPage/NotFoundPage";
