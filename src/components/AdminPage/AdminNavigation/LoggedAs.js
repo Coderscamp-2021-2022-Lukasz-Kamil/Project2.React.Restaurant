@@ -1,23 +1,12 @@
-import { auth } from "../../../firebase";
-import { useContext } from "react";
-import { UserContext, UserProvider } from "./UserContext";
-
+import { useCookies } from "react-cookie";
 
 const LoggedAs = () => {
-	// const user = useAuth()
-	const currentUser = auth.currentUser
-	// const currentUser = useContext(UserContext);
-	console.log(currentUser)
+	const [cookies] = useCookies();
 
 	return (
-		<>
-			<UserProvider>
-				<div className='d-flex mx-auto fs-5 text-white'>
-					Logged as: {currentUser.email}
-					
-				</div>
-			</UserProvider>
-		</>
+		<div className='d-flex mx-auto text-white' style={{fontFamily: "Roboto, sans-serif"}}>
+			{cookies.isSignedIn === "true" ? <h3>Logged as: {cookies.signedUserEmail}</h3> : <h3>Please log in!</h3>}
+		</div>
 	);
 };
 

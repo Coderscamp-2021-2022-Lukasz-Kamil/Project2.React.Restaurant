@@ -16,6 +16,7 @@ const SignOut = () => {
 		try {
 			await signOut(auth);
 			removeCookie("isSignedIn", { path: "/" });
+			removeCookie("signedUserEmail", {path: "/"});
 			navigate("/admin/");
 		} catch (e) {
 			console.log(e);
