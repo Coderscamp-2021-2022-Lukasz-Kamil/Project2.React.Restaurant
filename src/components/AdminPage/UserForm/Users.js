@@ -43,6 +43,7 @@ const Users = (props) => {
     }
   };
 
+
   useEffect(() => getUsers(), [isReloaded, props.onUsersAdded]);
 
   return (
