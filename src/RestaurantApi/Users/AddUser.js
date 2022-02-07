@@ -27,8 +27,6 @@ const addUserInfo = async (
 };
 
 const addUser = async (email, password, name, phoneNumber, accountType) => {
-  console.log(auth);
-  console.log(email);
   try {
     // const userCredential = await createUserWithEmailAndPassword(
     //   auth,

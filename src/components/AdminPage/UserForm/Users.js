@@ -3,12 +3,35 @@ import styles from "./Users.module.css";
 import removeUser from "../../../RestaurantApi/Users/RemoveUser";
 import getAllUsers from "../../../RestaurantApi/Users/GetAllUsers";
 import { useEffect, useState } from "react";
+import Cart from "../../Modal/Cart";
 
-const Users = () => {
+const Users = (props) => {
   const [allUsers, setAllUsers] = useState([]);
   const [isReloaded, setIsReloaded] = useState({});
-  const removingUser = (id) => {
-    removeUser(id).then(() => setIsReloaded({}));
+  const [cartIsShown, setCartIsShown] = useState(false);
+  const [clickedUserId, setClickedUserId] = useState();
+
+  const setClickedIdAndShowCart = (id) => {
+    return () => {
+      showCartHandler();
+      setClickedUserId(id);
+    };
+  };
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
+
+  const createRemoveUserFunction = (id) => {
+    const removingUser = () => {
+      removeUser(id).then(() => setIsReloaded({}));
+      hideCartHandler();
+    };
+    return removingUser;
   };
 
   const getUsers = async () => {
@@ -20,7 +43,8 @@ const Users = () => {
     }
   };
 
-  useEffect(() => getUsers(), [isReloaded]);
+
+  useEffect(() => getUsers(), [isReloaded, props.onUsersAdded]);
 
   return (
     <Container
@@ -33,6 +57,12 @@ const Users = () => {
         paddingRight: "0",
       }}
     >
+      {cartIsShown && (
+        <Cart
+          onClose={hideCartHandler}
+          onConfirm={createRemoveUserFunction(clickedUserId)}
+        />
+      )}
       {allUsers.map((user) => (
         <Row
           className={`${styles.usersContainer} w-100 mh-25 mt-2 align-self-start align-items-center p-0 m-0 justify-content-center`}
@@ -51,7 +81,7 @@ const Users = () => {
                   fontWeight: "bold",
                 }}
                 type="button"
-                onClick={() => removingUser(user.id)}
+                onClick={setClickedIdAndShowCart(user.id)}
               >
                 Delete
               </Button>
