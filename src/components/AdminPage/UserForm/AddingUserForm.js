@@ -10,7 +10,7 @@ import styles from "./AddingUserForm.module.css";
 import { useState } from "react";
 import saveUser from "../../../RestaurantApi/Users/AddUser";
 
-const AddingUserForm = ({ addUser }) => {
+const AddingUserForm = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPhone, setEnteredPhone] = useState("+48");
@@ -44,15 +44,6 @@ const AddingUserForm = ({ addUser }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    const newUserData = {
-      name: enteredName,
-      email: enteredEmail,
-      phoneNumber: enteredPhone,
-      password: enteredPassword,
-    };
-
-    addUser(newUserData);
 
     setEnteredName("");
     setEnteredEmail("");
@@ -90,8 +81,16 @@ const AddingUserForm = ({ addUser }) => {
     enteredPhone.trim().length === 12 &&
     enteredEmail.match(emailFormat);
 
-  const createdUser = () => {
-    saveUser(enteredEmail, enteredPassword, enteredName, enteredPhone, "user");
+  const createUser = () => {
+    saveUser(
+      enteredEmail,
+      enteredPassword,
+      enteredName,
+      enteredPhone,
+      "user"
+    ).then(() => {
+      props.onUsersAdded({});
+    });
   };
 
   return (
@@ -163,7 +162,7 @@ const AddingUserForm = ({ addUser }) => {
           }}
           type="submit"
           disabled={!isValid}
-          onClick={createdUser}
+          onClick={createUser}
         >
           <img
             src="/icons/plus_icon.png"
