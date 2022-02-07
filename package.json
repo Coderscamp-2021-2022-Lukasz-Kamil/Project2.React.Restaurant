@@ -27,7 +27,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "no-useless-escape": "off",
+      "jsx-a11y/iframe-has-title": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -42,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5",
     "msw": "^0.36.4"
   }
 }
