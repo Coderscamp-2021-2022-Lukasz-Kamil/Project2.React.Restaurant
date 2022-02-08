@@ -27,12 +27,7 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "rules": {
-      "no-unused-vars": "off",
-      "no-useless-escape": "off",
-      "jsx-a11y/iframe-has-title": "off"
-    }
+    ]
   },
   "browserslist": {
     "production": [
