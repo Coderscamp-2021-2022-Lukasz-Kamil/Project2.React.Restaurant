@@ -16,6 +16,8 @@ import PrivateRoute from "./components/AdminPage/AdminPanel/PrivateRoute";
 import { useCookies } from "react-cookie";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import AdminNavigationBar from "./components/AdminPage/AdminNavigation/AdminNavigationBar";
+import AdminSideBar from "./components/AdminPage/AdminNavigation/AdminSideBar";
+import { Col, Row } from "react-bootstrap";
 import "./App.css";
 
 function App() {
@@ -69,7 +71,14 @@ function App() {
 		return (
 			<>
 				<AdminNavigationBar />
-				<Outlet />
+				<Row>
+					<Col>
+						<AdminSideBar />
+					</Col>
+					<Col>
+						<Outlet />
+					</Col>
+				</Row>
 			</>
 		);
 	}

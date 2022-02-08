@@ -3,10 +3,8 @@ import Title from "../../Title/Title";
 import { Nav, Navbar, Image, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import AdminMenuMobile from "./AdminMenuMobile";
-import AdminSideBar from "./AdminSideBar";
 import SignOutMobile from "../AdminSignOut/SignOutMobile";
 import LoggedAs from "./LoggedAs";
-
 
 const AdminNavigationBar = () => {
 	return (
@@ -39,10 +37,6 @@ const AdminNavigationBar = () => {
 					</Nav>
 				</Col>
 			</Navbar>
-
-			<Col className='d-none d-md-block'>
-				<AdminSideBar />
-			</Col>
 		</>
 	);
 };
