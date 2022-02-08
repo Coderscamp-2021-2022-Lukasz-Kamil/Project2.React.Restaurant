@@ -1,12 +1,12 @@
 import {Image, Button} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 
-const MenuOnMobile = props => {
+const MenuOnMobile = ({source, icon}) => {
     return (
 
-        <NavLink to={props.source} className="text-decoration-none text-white" activeclassname="active">
+        <NavLink to={source} className="text-decoration-none text-white" activeclassname="active">
             <Button className="bg-transparent shadow-none border-none">
-                <Image src={props.icon}></Image>
+                <Image src={icon}></Image>
             </Button>
         </NavLink>
     )

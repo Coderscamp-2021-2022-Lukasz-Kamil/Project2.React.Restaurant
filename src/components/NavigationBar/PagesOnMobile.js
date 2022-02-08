@@ -10,7 +10,7 @@ const PagesOnMobile = () => {
     { source: "/menu", icon: MenuIcon },
     { source: "/contact", icon: ContactIcon },
   ];
-  return pagesOnMobile.map(({pageOnMobile}) => (
+  return pagesOnMobile.map((pageOnMobile) => (
     <PageOnMobile
       source={pageOnMobile.source}
       icon={pageOnMobile.icon}
