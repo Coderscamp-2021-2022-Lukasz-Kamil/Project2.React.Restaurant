@@ -1,0 +1,39 @@
+.total {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.actions {
+  text-align: center;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #e1651f;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #e1651f;
+  border-color: #e1651f;
+  color: white;
+}
+
+.actions .button--alt {
+  color: #e1651f;
+}
+
+.actions .button {
+  background-color: #e1651f;
+  color: white;
+}
