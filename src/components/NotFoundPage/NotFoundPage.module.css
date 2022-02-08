@@ -1,0 +1,22 @@
+.pageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.backHomeButton {
+  background-color: #e1651f;
+  border-color: transparent;
+  color: #fff;
+  font-family: "Montserrat, sans-serif";
+  font-size: clamp(0.7rem, 2vw, 1.2rem);
+  margin-left: 2vw;
+  padding: 10px;
+}
+
+.backHomeButton:hover {
+  background-color: #e48b25;
+}
