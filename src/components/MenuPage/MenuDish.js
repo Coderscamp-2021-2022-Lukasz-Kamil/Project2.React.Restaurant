@@ -11,8 +11,8 @@ const MenuDish = props =>{
   //const dishCard = useRef(new Array())
   let vege 
   let chili 
-const clicksNode = document.querySelectorAll('.dish-img-button')
-    const clicks = Array.from(clicksNode)
+  const clicksNode = document.querySelectorAll('.dish-img-button')
+  const clicks = Array.from(clicksNode)
 
   const [state, setState] = useState({count: 0});
   const [bigger, setBigger] = useState(false);
@@ -49,7 +49,6 @@ const clicksNode = document.querySelectorAll('.dish-img-button')
     const clicks = Array.from(clicksNode)
     const numberOfCards = document.querySelector(".dishes-card-container")
    
-    
 
     clicks.forEach(click => click.addEventListener('click', (e) => {
     for (let i = 0, len = numberOfCards.children.length; i < len; i++){  
@@ -132,7 +131,11 @@ const clicksNode = document.querySelectorAll('.dish-img-button')
                 <div className="d-flex dish-name-and-price">
                     <div className="empty-box"></div>
                     <p className="card-title">{props.dish}</p>
-                    <div className="price">{props.price}$</div>
+                    <div className="price-and-vege">
+                      <div className="price">{props.price}$</div>
+                        <Image src={vege} className="vege-icon mobile-icon"></Image>
+                        <Image src={chili} className="chili-icon mobile-icon"></Image>
+                    </div>
                 </div>
                 <div className="vege-and-chili"> 
                     <Image src={vege} className="vege-icon"></Image>

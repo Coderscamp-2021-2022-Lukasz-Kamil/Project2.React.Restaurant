@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import NavigationBar from "../NavigationBar/NavigationBar";
-import {Container, Button} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import ToggleSwitch from "./ToggleSwitch";
 import  "./MenuPage.css"
 import MenuCategories from "./MenuCategiories";
@@ -9,44 +9,46 @@ import getAllDishes  from "../../RestaurantApi/Dishes/GetAllDishes";
 
 
 
-
-const MenuPage = () => {
-  const [buttons, setButtons] = useState([]);
+  const MenuPage = () => {
+  const [buttons, setButtons] = useState(['All','Pizza','Soup','Pasta','Dessert','Starter']);
   const [dishes, setDishes] = useState([]);
   const [primalDishes, setPrimalDishes] = useState([]);
 
-  const [vegeOnly, setVegeOnly] = useState(false) 
+  // Vege filter
+  const [vegeDishes, setVegeDishes] = useState([]);
+  const [isVege, setIsVege] = useState(false)
 
-  const vegeFilter = (checkbox) => {
-    if (checkbox.checked === false){
-      setDishes(primalDishes);
-      return
-    }
+  const isVegeHandler = () => {
+    setIsVege(!isVege);
+  };
+
+  const vegeFilter = (dishesList) => {
+    return dishesList.filter(item => item.dish_is_vege);
   }
+  //
 
-
-
-  const filter = (button) =>{    
+  const filter = (button) =>{
+    
     if(button === 'All'){
+      setVegeDishes(vegeFilter(primalDishes));
       setDishes(primalDishes);
       return;
-    
     }
     
-    const filteredData = primalDishes.filter(item => item.dish_category === button);
-    setDishes(filteredData)
-  }
-  
+    const filteredData = primalDishes.filter(item => item.dish_category ===  button);
 
-  useLayoutEffect(() => {
+    setVegeDishes(vegeFilter(filteredData));
+    setDishes(filteredData);
+  }
+
+  useEffect(() => {
     getAllDishes().then(data => {
       setPrimalDishes(data);
       setDishes(data);
-      setButtons(['All', ...new Set(data.map(item => item.dish_category))])
+      setVegeDishes(vegeFilter(data));
     });
   }, []);
-  
-//<p>Switch is {vegeOnly ? "on" : "off"}</p>
+
   return (
     <div className="background">
   
@@ -56,13 +58,13 @@ const MenuPage = () => {
         </div>
         <React.Fragment>
           <div className="d-flex vege-switch">
-          <ToggleSwitch label=" " />
+          <ToggleSwitch label=" " isVegeHandler={isVegeHandler}/>
           <div className="vege-text">Vegetarian</div>
           </div>
         </React.Fragment>
       </Container>
       <Container fluid className="dishes-card-container">
-          <MenuDishes dishes={dishes} />
+          <MenuDishes dishes={isVege ? vegeDishes : dishes} />
       </Container>
     </div>
   );

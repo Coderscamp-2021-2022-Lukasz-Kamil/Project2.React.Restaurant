@@ -4,7 +4,7 @@ import MenuDish from "./MenuDish";
 
 const MenuDishes = (props) =>{
    
-const [selectedId, setSelectedId] = useState(null);
+    const [selectedId, setSelectedId] = useState(null);
 
   const onChange = (id) => {
     setSelectedId(id === selectedId ? null : id);
