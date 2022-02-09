@@ -1,6 +1,8 @@
 .title {
   font-family: "Italianno", cursive;
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 100;
   color: #fff;
+  padding: 0;
+  margin: 0;
 }

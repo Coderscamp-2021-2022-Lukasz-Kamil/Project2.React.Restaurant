@@ -6,6 +6,7 @@ import styles from "./ContactPage.module.css";
 const ContactPage = () => {
   return (
     <Container
+      data-testid="background"
       className={` ${styles.sth}  h-100 mw-100  p-0 m-0 `}
       style={{
         backgroundImage: `url(${image})`,
@@ -43,7 +44,7 @@ const ContactPage = () => {
             <img
               className={`img-responsive ${styles.icon} `}
               src="/icons/icon_phone.png"
-              alt=""
+              alt="phone"
             />
             <Card.Text className={`mt-2 ${styles.text}`}>
               +48 665-331-225
@@ -51,7 +52,7 @@ const ContactPage = () => {
             <img
               className={`img-responsive ${styles.icon}`}
               src="/icons/icon_envelope.png"
-              alt=""
+              alt="envelope"
             />
             <Card.Text className={`mt-2 ${styles.text}`}>
               support@paradiso.pl
@@ -79,7 +80,7 @@ const ContactPage = () => {
             </Card.Text>
 
             <Container
-              id="map-container-google-1"
+              data-testid="map-container-google-1"
               className={`z-depth-1-half map-container mb-2 w-75 ${styles.map}`}
               style={{ height: "40vh" }}
             >

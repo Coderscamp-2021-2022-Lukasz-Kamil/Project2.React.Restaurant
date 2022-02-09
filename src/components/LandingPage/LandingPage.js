@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const LandingPage = () => {
   return (
     <div
+      data-testid="background"
       style={{
         backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
@@ -33,9 +34,9 @@ const LandingPage = () => {
         >
           Italian Restaurant
         </Card.Subtitle>
-        <Card.Body className={styles["about"]}>
+        <Card.Body data-testid="about-container" className={styles["about"]}>
           <Card.Title className={styles["aboutTitle"]}>About</Card.Title>
-          <Card.Text>
+          <Card.Text data-testid="about-description">
             With this desire was born the idea of ​​creating Paradiso Italiano,
             where you can find real Italian flavors: pizza on a delicate, thin
             crust wood-fired oven, pasta according to Italian recipes and many
