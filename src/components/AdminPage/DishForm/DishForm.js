@@ -126,9 +126,9 @@ const DishForm = (props)  => {
   }, []);
   
   return (
-    <Container>
+    <Container className={`${styles.dishFormContainer}`}>
       <Form
-        className={` ${styles.inputsContainer} w-100 d-flex flex-column align-items-center p-3`}
+        className={` ${styles.inputsContainer} w-100 d-flex flex-column align-items-center p-3 mt-5`}
         style={{
           backgroundColor: "#C4C4C4",
         }}

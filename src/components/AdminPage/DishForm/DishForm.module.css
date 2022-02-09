@@ -20,6 +20,10 @@
     .inputsContainer {
       background-color: #fff !important;
     }
+    .dishFormContainer {
+      min-width: 100vw !important;
+      padding: 0 !important;
+    }
   
     .input {
       min-width: 99vw !important;
