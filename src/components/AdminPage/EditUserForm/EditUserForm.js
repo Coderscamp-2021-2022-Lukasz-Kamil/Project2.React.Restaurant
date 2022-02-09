@@ -18,14 +18,26 @@ const EditUserForm = (props)  => {
   const [confirmationPassword, setConfirmationPassword] = useState('');
   const [message, setMessage] = useState('')
   
+  const setDefaultValues = () => {
+    setNewPassword('');
+    setConfirmationPassword('');
+  }
 
   const updateUser = () => {
-    if (newPassword.length < 5 ) {
+    if (newPassword.length < 5 && newPassword.length > 0) {
       setMessage('Your new password is too short!')
     } else if( newPassword !== confirmationPassword ){
       setMessage('You enter wrong confirmation password!')
     } else {
-      editUser(name, email, newPassword);
+      editUser(name, email, newPassword)
+      .then(data => {
+        setMessage(data);
+        setDefaultValues();
+      })
+      .catch((err) => {
+        setMessage(err.message);
+      });
+      
     };
   };
 
