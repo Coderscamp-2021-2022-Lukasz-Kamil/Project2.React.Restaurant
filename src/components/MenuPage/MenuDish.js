@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react"
+import React from "react"
 import { Card, Image, Button} from "react-bootstrap"
 import VegeIcon from "../../images/vege-icon.png"
 import ChiliIcon from "../../images/chili-icon.png"
@@ -8,23 +8,9 @@ import ThreeChilies from "../../images/3chili-icon.png"
 
 
 const MenuDish = props =>{
-  //const dishCard = useRef(new Array())
   let vege 
   let chili 
-  const clicksNode = document.querySelectorAll('.dish-img-button')
-  const clicks = Array.from(clicksNode)
-
-  const [state, setState] = useState({count: 0});
-  const [bigger, setBigger] = useState(false);
-
-  const [numCard, setNumCard] = useState({
-    majObject : null,
-    clicks
-  });
-
-
-  const ref = useRef(new Array([]));
-
+  
   const clickHandler = (keyID) => {
     props.onChange(keyID);
     
@@ -103,7 +89,6 @@ const MenuDish = props =>{
               
               
             }
-
       }    
     })(i);   
   } 
@@ -112,11 +97,13 @@ const MenuDish = props =>{
   })
 */ 
     return (
-        <Card ref={ref} className={"menu-dish no-paddings " + (props.selectedId === props.id ? "active-card" : "disactive")} >
-            <Button className={"dish-img-button shadow-none border-none " }
+        <Card className={"menu-dish no-paddings " + (props.selectedId === props.id ? "active-card" : "disactive")} >
+            <Button className="dish-img-button shadow-none border-none bg-transparent"
         onClick={(e) => clickHandler(props.id, e)}>
               <Image fluid src={props.dishImage} className={"dish-image-width " + (props.selectedId === props.id ? "active-card-image" : "inactive-card-image") }></Image>
+              <p className="click-me">Click me</p>
               <div className={"image-blur "+ (props.selectedId === props.id ? "active-card-blur" : "inactive-card-blur")}>
+                
               <div className="description-and-ingredients">
                 <p className="description-and-ingredients-heading">Desctiption:</p>
                 <p>{props.description}</p>

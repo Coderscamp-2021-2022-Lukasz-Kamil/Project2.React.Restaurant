@@ -2,6 +2,10 @@
     background-color: #E5E5E5;
 }
 
+.btn:hover{
+    border: none;
+}
+
 .buttonsAndSwitch{
     margin: 40px 0px;
     align-items: center;
@@ -85,9 +89,33 @@
     height: 250.48px;
     border: none;
     position: relative;
-
+    transition: 0.5s;
+    
 }
 
+.click-me{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    pointer-events:none; 
+}
+
+.dish-image-width:hover{
+    transform: scale(1.2);
+    filter: blur(1px);
+}
+
+.dish-image-width:hover + .click-me{
+    display: block;
+}
+
+.click-me:hover{
+    display: block;
+}
 
 .active-card-image{
     width: 100%;
@@ -256,6 +284,7 @@
     .card{
         width: 100%;
     }
+
     .nothin{
         display: none;
     }
@@ -269,19 +298,24 @@
         flex-direction: column;
         justify-content: center;
     }
+
      .dish-name-and-price{
         align-items: center;
         flex-direction: column;
     }
+
     .price{
         margin-bottom: 10px;
     }
+
     .dishes-container{
         padding: 0;
     }
+
     .dishes-card-container{
         grid-template-columns: 1fr;
     }
+
     .card-title{
         text-align: center;
     }
@@ -292,20 +326,23 @@
         grid-column: span 1;
         grid-row: span 1;
     }
+
     .description-and-ingredients{
         font-size: 18px;
     }
+
     .description-and-ingredients-heading{
         font-size: 22px;
     }
+
     .image-blur{
     top: 36.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     height: 76%;
-
     }
+
     .empty-box{
         display: none;
     }
@@ -313,6 +350,18 @@
     .image-blur {
         top: 50%;
         height: 100%;
+    }
+    .dish-image-width:hover{
+        transform: none;
+        filter: none;
+    }
+
+    .dish-image-width:hover + .click-me{
+        display: none;
+    }
+
+    .click-me:hover{
+        display: none;
     }
 }
 

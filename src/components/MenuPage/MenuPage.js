@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import NavigationBar from "../NavigationBar/NavigationBar";
+import React, { useState, useEffect} from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import {Container} from "react-bootstrap";
 import ToggleSwitch from "./ToggleSwitch";
 import  "./MenuPage.css"
