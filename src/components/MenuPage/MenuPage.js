@@ -10,11 +10,9 @@ import getAllDishes  from "../../RestaurantApi/Dishes/GetAllDishes";
 
 
   const MenuPage = () => {
-  const [buttons, setButtons] = useState(['All','Pizza','Soup','Pasta','Dessert','Starter']);
+  const [buttons] = useState(['All','Pizza','Soup','Pasta','Dessert','Starter']);
   const [dishes, setDishes] = useState([]);
   const [primalDishes, setPrimalDishes] = useState([]);
-
-  // Vege filter
   const [vegeDishes, setVegeDishes] = useState([]);
   const [isVege, setIsVege] = useState(false)
 
@@ -25,7 +23,7 @@ import getAllDishes  from "../../RestaurantApi/Dishes/GetAllDishes";
   const vegeFilter = (dishesList) => {
     return dishesList.filter(item => item.dish_is_vege);
   }
-  //
+
 
   const filter = (button) =>{
     
