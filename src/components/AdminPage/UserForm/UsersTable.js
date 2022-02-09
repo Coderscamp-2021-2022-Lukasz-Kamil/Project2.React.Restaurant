@@ -1,14 +1,13 @@
 import styles from "./UsersTable.module.css";
 import { Row, Col, Container } from "react-bootstrap";
-import Users from "./Users";
 
-const UsersTable = ({ users }) => {
+const UsersTable = ({}) => {
   return (
     <Container
       className="d-flex flex-column "
       style={{
         padding: "0",
-        height: "50vh",
+        height: "auto",
         minWidth: "100%",
       }}
     >
@@ -28,7 +27,6 @@ const UsersTable = ({ users }) => {
         <Col className={`${styles.emailColumn} col-sm-4`}>E-mail</Col>
         <Col className="col-sm-2">Action</Col>
       </Row>
-      <Users />
     </Container>
   );
 };

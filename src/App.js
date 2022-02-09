@@ -27,6 +27,7 @@ function App() {
 
 	const isSignedIn = () => cookie.isSignedIn;
 
+<<<<<<< HEAD
 	return (
 		<div className='App'>
 			<Router>
@@ -79,6 +80,73 @@ function App() {
 			</div>
 		);
 	}
+=======
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<PagesWithNavigationBar />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+          </Route>
+
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/" element={<PagesWithNavigationAdmin />}>
+            {isSignedIn() && (
+              <Route path="/admin/home" element={<AdminHome />} />
+            )}
+            <Route
+              path="/admin/home"
+              element={
+                <PrivateRoute>
+                  <AdminHome />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/admin/menu" element={<AdminMenu />} />
+            <Route path="/admin/members" element={<AdminMembers />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+
+  function PagesWithNavigationBar() {
+    return (
+      <>
+        <NavigationBar />
+        <Outlet />
+      </>
+    );
+  }
+
+  function PagesWithNavigationAdmin() {
+    return (
+      <>
+        <AdminNavigationBar />
+        <Row style={{ maxWidth: "100%" }}>
+          <Col
+            style={{
+              maxWidth: "20vw",
+              maxHeight: "80vh",
+              padding: "0",
+              margin: "0",
+            }}
+          >
+            <AdminSideBar />
+          </Col>
+          <Col>
+            <Outlet />
+          </Col>
+        </Row>
+      </>
+    );
+  }
+
+>>>>>>> origin
 }
 
 export default App;
