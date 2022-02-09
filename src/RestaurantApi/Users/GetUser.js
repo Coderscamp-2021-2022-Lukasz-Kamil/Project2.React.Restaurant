@@ -1,11 +1,10 @@
-import { db } from "../../firebase"
-import { doc, getDoc } from 'firebase/firestore'
+import { db, auth } from "../../firebase";
+import { doc, getDoc } from 'firebase/firestore';
+import { updateProfile } from "firebase/auth";
 
-const getUser = async(id) => {
-  const userRef = doc(db, 'users', id);
-
+const getUser = async() => {
   try {
-    return await getDoc(userRef);
+    return auth.currentUser;
   } catch (err) {
     throw new Error("Server Error");
   }
