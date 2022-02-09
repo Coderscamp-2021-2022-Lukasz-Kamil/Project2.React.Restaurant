@@ -4,8 +4,8 @@ import { Image, Button } from "react-bootstrap";
 const MenuPages = ({ source, icon, name }) => {
   return (
     <div
-      className=" mb-3 p-2 active-page fs-6 bg-light w-10"
-      style={{ fontFamily: "Roboto", maxHeight: "60px", maxWidth: "20vw" }}
+      className=" mb-3 p-2 active-page fs-6 bg-light"
+      style={{ fontFamily: "Roboto", maxHeight: "60px"}}
     >
       <NavLink
         to={source}

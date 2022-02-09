@@ -5,13 +5,13 @@ const LoggedAs = () => {
 
   return (
     <div
-      className="d-flex justify-content-end align-items-end  text-white "
+      className="d-flex justify-content-end align-items-end text-white mx-3"
       style={{ width: "65vw", fontFamily: "Roboto, sans-serif" }}
     >
       {cookies.isSignedIn ? (
-        <h3>Logged as: {cookies.signedUserEmail}</h3>
+        <h4>Logged as: {cookies.signedUserEmail}</h4>
       ) : (
-        <h3>Please log in!</h3>
+        <h4>Please log in!</h4>
       )}
     </div>
   );
