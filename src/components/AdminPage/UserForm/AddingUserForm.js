@@ -95,6 +95,7 @@ const AddingUserForm = (props) => {
 
   return (
     <Container style={{ padding: "0" }}>
+      {/* <UsersTable /> */}
       <Form
         className={` ${styles.inputsContainer} w-100 d-flex flex-column align-items-center p-3`}
         style={{

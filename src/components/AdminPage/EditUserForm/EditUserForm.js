@@ -59,7 +59,7 @@ const EditUserForm = (props)  => {
   return (
     <Container className={`w-75 ${styles.editUserContainer}`}>
       <Container
-        className={`d-flex mb-5 mt-5 pb-2 pt-2 shadow-none justify-content-center text-white ${styles.editTextContainer} `}
+        className={`d-flex mb-5 pb-2 mt-5 pt-2 shadow-none justify-content-center text-white ${styles.editTextContainer} `}
         style={{
           backgroundColor: "#777777",
         }}
