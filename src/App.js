@@ -72,7 +72,7 @@ function App() {
 			<>
 				<AdminNavigationBar />
 				<Row>
-					<Col>
+					<Col  className="d-none d-md-block">
 						<AdminSideBar />
 					</Col>
 					<Col>
