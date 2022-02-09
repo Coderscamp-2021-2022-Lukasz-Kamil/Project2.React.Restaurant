@@ -9,13 +9,14 @@ const NotFound = () => {
         <button className={styles.backHomeButton}> Back Home</button>
       </a>
       <div
+        data-testid="background"
         className="errorPhoto"
         style={{
           backgroundPosition: "center",
           backgroundImage: `url(${errorPhoto})`,
-          backgroundSize: "100vh auto",
+          backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
-          height: "80vh",
+          height: "90vh",
           width: "100vw",
         }}
       ></div>

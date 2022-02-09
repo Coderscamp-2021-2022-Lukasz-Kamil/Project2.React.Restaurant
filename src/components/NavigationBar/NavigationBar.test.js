@@ -1,10 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import NavigationBar from "./NavigationBar";
+import { MemoryRouter } from "react-router-dom";
 
 describe("NavigationBar components", () => {
   test("Logo icon is rendered", () => {
-    render(<NavigationBar />);
-    const logoIconElement = screen.getByAltText("restaurant logo");
-    expect(logoIconElement).toBeInTheDocument();
+    render(
+      <MemoryRouter>
+        <NavigationBar />
+      </MemoryRouter>
+    );
+    const logoIconElement = screen.getAllByAltText("restaurant logo");
+    expect(logoIconElement).toBeInTheDocument;
   });
 });

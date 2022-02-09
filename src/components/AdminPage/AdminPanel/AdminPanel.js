@@ -30,6 +30,7 @@ const AdminPanel = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
         setCookie("isSignedIn", true, { path: "/" });
+        setCookie("signedUserEmail", email, {path: "/"});
         navigation();
       })
       .catch((err) => {

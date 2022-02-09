@@ -43,6 +43,8 @@
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "eslint-plugin-testing-library": "^5.0.5",
+    "mini-css-extract-plugin": "2.4.5",
+    "jest-watch-typeahead": "^0.6.5",
     "msw": "^0.36.4"
   }
 }

@@ -17,7 +17,7 @@ describe("ContactPage components", () => {
     const openingHoursElement = screen.getByText("Opening Hours", {
       exact: false,
     });
-    expect(openingHoursElement).toBeInTheDocument();
+    expect(openingHoursElement).toBeInTheDocument;
   });
 
   test("Renders Find Us Here as a text ", () => {
@@ -26,24 +26,24 @@ describe("ContactPage components", () => {
     const findUsHereElement = screen.getByText("Find us here", {
       exact: false,
     });
-    expect(findUsHereElement).toBeInTheDocument();
+    expect(findUsHereElement).toBeInTheDocument;
   });
 
   test("Renders phone icon", () => {
     render(<ContactPage />);
     const phoneIconElement = screen.getByAltText("phone");
-    expect(phoneIconElement).toBeInTheDocument();
+    expect(phoneIconElement).toBeInTheDocument;
   });
 
   test("Renders envelope icon", () => {
     render(<ContactPage />);
     const envelopeIconElement = screen.getByAltText("envelope");
-    expect(envelopeIconElement).toBeInTheDocument();
+    expect(envelopeIconElement).toBeInTheDocument;
   });
 
   test("Renders map element", () => {
     render(<ContactPage />);
     const mapElement = screen.getByTestId("map-container-google-1");
-    expect(mapElement).toBeInTheDocument();
+    expect(mapElement).toBeInTheDocument;
   });
 });
