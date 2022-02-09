@@ -1,5 +1,7 @@
+import EditUserForm from "../EditUserForm/EditUserForm";
+
 const AdminHome = () => {
-	return <div>Admin Home</div>;
+	return <EditUserForm />;
 };
 
 export default AdminHome;

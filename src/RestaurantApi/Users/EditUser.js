@@ -1,14 +1,21 @@
-import { updateUser} from "firebase/auth";
+import { updateProfile, updatePassword, updateEmail } from "firebase/auth";
+import { auth } from "../../firebase";
 
-const editUser = async (id, email, password, name) => {
+const editUser = async (name, newEmail, newPassword) => {
   const newFields = {
-    email: email, 
-    displayName: name, 
-    password: password
+    displayName: name,
   };
+  const user = auth.currentUser;
 
   try {
-    await updateUser(id, newFields);
+    if (newEmail !== user.email) {
+      await updateEmail(user, newEmail);
+    }
+    if (newPassword !== ''){
+      await updatePassword(user, newPassword);
+    }
+    await updateProfile(user, newFields);
+
     return "User was sucessfully edited";
   } catch (err) {
     throw new Error("Server Error, user wasn't edited");

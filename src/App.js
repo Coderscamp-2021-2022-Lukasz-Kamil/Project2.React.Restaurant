@@ -1,8 +1,8 @@
 import {
-	BrowserRouter as Router,
-	Outlet,
-	Route,
-	Routes,
+  BrowserRouter as Router,
+  Outlet,
+  Route,
+  Routes,
 } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ContactPage from "./components/ContactPage/ContactPage";
@@ -21,51 +21,74 @@ import { Col, Row } from "react-bootstrap";
 import "./App.css";
 
 function App() {
-	const [cookie] = useCookies(["isSignedIn"]);
+  const [cookie] = useCookies(["isSignedIn"]);
 
-	const isSignedIn = () => cookie.isSignedIn;
+  const isSignedIn = () => cookie.isSignedIn;
 
-	return (
-		<div className='App'>
-			<Router>
-				<Routes>
-					<Route path='/' element={<PagesWithNavigationBar />}>
-						<Route path='/' element={<LandingPage />} />
-						<Route path='/contact' element={<ContactPage />} />
-						<Route path='/menu' element={<MenuPage />} />
-					</Route>
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<PagesWithNavigationBar />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+          </Route>
 
-					<Route path='/admin' element={<AdminPanel />} />
-					<Route path='/' element={<PagesWithNavigationAdmin />}>
-						{isSignedIn() && (
-							<Route path='/admin/home' element={<AdminHome />} />
-						)}
-						<Route
-							path='/admin/home'
-							element={
-								<PrivateRoute>
-									<AdminHome />
-								</PrivateRoute>
-							}
-						/>
-						<Route path='/admin/menu' element={<AdminMenu />} />
-						<Route path='/admin/members' element={<AdminMembers />} />
-					</Route>
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/" element={<PagesWithNavigationAdmin />}>
+            {isSignedIn() && (
+              <Route path="/admin/home" element={<AdminHome />} />
+            )}
+            <Route
+              path="/admin/home"
+              element={
+                <PrivateRoute>
+                  <AdminHome />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/admin/menu" element={<AdminMenu />} />
+            <Route path="/admin/members" element={<AdminMembers />} />
+          </Route>
 
-					<Route path='*' element={<NotFound />} />
-				</Routes>
-			</Router>
-		</div>
-	);
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 
-	function PagesWithNavigationBar() {
-		return (
-			<>
-				<NavigationBar />
-				<Outlet />
-			</>
-		);
-	}
+  function PagesWithNavigationBar() {
+    return (
+      <>
+        <NavigationBar />
+        <Outlet />
+      </>
+    );
+  }
+
+  function PagesWithNavigationAdmin() {
+    return (
+      <>
+        <AdminNavigationBar />
+        <Row style={{ maxWidth: "100%" }}>
+          <Col
+            style={{
+              maxWidth: "20vw",
+              maxHeight: "80vh",
+              padding: "0",
+              margin: "0",
+            }}
+          >
+            <AdminSideBar />
+          </Col>
+          <Col>
+            <Outlet />
+          </Col>
+        </Row>
+      </>
+    );
+  }
 
 	function PagesWithNavigationAdmin() {
 		return (
