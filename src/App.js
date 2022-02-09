@@ -90,6 +90,32 @@ function App() {
     );
   }
 
+	function PagesWithNavigationAdmin() {
+		return (
+			<>
+				<AdminNavigationBar />
+				<Row style={{ maxWidth: "100%" }}>
+					<Col
+						className='d-none d-md-block'
+						style={{
+							maxWidth: "26vw",
+							padding: "0",
+							margin: "0",
+						}}>
+						<AdminSideBar />
+					</Col>
+					<Col
+						style={{
+							maxWidth: "60vw",
+							padding: "0",
+							margin: "0 auto",
+						}}>
+						<Outlet />
+					</Col>
+				</Row>
+			</>
+		);
+	}
 }
 
 export default App;

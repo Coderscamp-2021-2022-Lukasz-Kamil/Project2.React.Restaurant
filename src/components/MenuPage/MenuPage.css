@@ -1,0 +1,473 @@
+.background{
+    background-color: #E5E5E5;
+}
+
+.btn:hover{
+    border: none;
+}
+
+.buttonsAndSwitch{
+    margin: 40px 0px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.menu-button{
+    width: 140px;
+    background-color: #C4C4C4;
+    border: none;
+    transition: 0.2s;
+    border-radius: 10px;
+    font-size: 24px;
+    color: black;
+    font-family: 'Rufina';
+}
+
+.menu-button:hover{
+    background-color: #E1651F;
+    color: white ;
+}
+
+.active-page button.active, .active-page button:hover{
+    color: #E1651F;
+    filter: invert(43%) sepia(91%) saturate(1189%) hue-rotate(349deg) brightness(92%) contrast(91%);
+    transition: 0.1s;
+}
+
+.no-paddings{
+    padding: 0;
+}
+
+.mobile-icon{
+    display: none;
+}
+
+.menu-dish{
+    width: 25rem;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-body{
+    height: auto;
+}
+
+.dish-name-and-price{
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.price{
+    display: flex;
+    background-color: #E1651F;
+    width: 60px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.card-title {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 32px;
+    margin-bottom: 0;  
+    text-align: center; 
+}
+
+.empty-box{
+    width: 68px;
+    height: 48px;
+}
+
+.dish-image-width{
+    width: 398px;
+    height: 250.48px;
+    border: none;
+    position: relative;
+    transition: 0.3s;
+    
+}
+
+.click-me{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    pointer-events:none; 
+}
+
+.dish-image-width:hover{
+    transform: scale(1.2);
+    filter: blur(1px);
+}
+
+.dish-image-width:hover + .click-me{
+    display: block;
+}
+
+.click-me:hover{
+    display: block;
+}
+
+.active-card-image{
+    width: 100%;
+    height: 600px ;
+}
+
+
+.image-blur{
+    position: absolute;  
+    background-color: rgba(0,0,0, 0.8); 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: none;
+    }
+
+.active-card-blur{
+    display: block;
+}
+
+.description-and-ingredients{
+    width: 80%;
+    font-family: Rufina;
+    font-size: 22px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ingredients{
+    top: 85%;
+}
+
+.description-and-ingredients-heading{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.dish-img-button{
+    padding: 0;
+    position: relative;
+    overflow: hidden
+}
+
+.dishes-card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-auto-flow: dense;
+}
+
+.active-card{
+    width: 50rem;
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.vege-and-chili{
+    display: flex;
+    justify-content: center;
+}
+
+.vege-switch{
+    align-items: center;
+}
+
+.vege-text{
+    font-size: 24px;
+    color: black;
+    font-family: 'Rufina';
+    margin-left: 10px;
+}
+
+.buttons-and-switch-grid{
+    display:grid;
+    grid-template-columns: 1fr 0.2fr;
+}
+
+@media (max-width: 1640px){
+    .dishes-card-container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 1240px){
+    .dishes-card-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 1150px){
+    .buttons-and-switch-grid{
+        grid-template-columns: 1fr;
+}
+    .vege-switch{
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+}
+
+@media (max-width: 950px){
+    .menu-button{
+    width: 100px;
+    font-size: 20px;
+    }
+    .vege-text{
+    font-size: 20px;
+}
+   .menu-dish{
+        width: 20rem;
+    }
+    .dish-image-width{
+        height: 225px;
+    }
+    .card-title{
+        font-size: 30px;
+    }
+    .active-card{
+        width: 40rem;
+    }
+    .active-card-image{
+        height: 600px;
+    }
+    .description-and-ingredients{
+        font-size: 18px;
+    }
+    .description-and-ingredients-heading{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 700px){
+    .buttonsAndSwitch{
+    margin: 40px 0px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+    .menu-button{
+    width: 140px;
+    font-size: 24px;
+    margin-bottom: 25px;
+    }
+
+    .vege-text{
+    font-size: 24px;
+    }
+
+}
+
+@media (max-width: 680px){
+    .menu-dish{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dish-card{
+        justify-content: left !important;
+        margin: 0 20px;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    .nothin{
+        display: none;
+    }
+
+    .dish-image-width{
+        width: 100%;
+        transition: 0.1s;
+    }
+
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+     .dish-name-and-price{
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .price{
+        margin-bottom: 10px;
+    }
+
+    .dishes-container{
+        padding: 0;
+    }
+
+    .dishes-card-container{
+        grid-template-columns: 1fr;
+    }
+
+    .card-title{
+        text-align: center;
+    }
+
+    .active-card{
+        display: flex;    
+        width: 90%;
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .description-and-ingredients{
+        font-size: 18px;
+    }
+
+    .description-and-ingredients-heading{
+        font-size: 22px;
+    }
+
+    .image-blur{
+    top: 36.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 76%;
+    }
+
+    .empty-box{
+        display: none;
+    }
+
+    .image-blur {
+        top: 50%;
+        height: 100%;
+    }
+    .dish-image-width:hover{
+        transform: none;
+        filter: none;
+    }
+
+    .dish-image-width:hover + .click-me{
+        display: none;
+    }
+
+    .click-me:hover{
+        display: none;
+    }
+}
+
+@media (max-width: 550px){
+    .card-title{
+       font-size: 28px; 
+    }
+   
+    .price{
+        height: 40px;
+    }
+
+    .chili-icon{
+        height: 20px;
+    }
+
+    .vege-icon{
+        height: 20px;
+    }
+
+    .dish-image-width{
+        height: 186px;
+    }
+
+    .active-card-image{
+    width: 100%;
+    height: 600px ;
+}
+}
+
+@media (max-width: 500px){
+    .menu-button{
+    width: 100px;
+    font-size: 20px;
+    }
+
+    .vege-text{
+    font-size: 20px;
+    }
+    
+    .description-and-ingredients{
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 450px){
+    .card-title{
+        font-size: 24px;
+    }
+
+    .price{
+        height: 30px;
+        font-size: 16px;
+        width: 50px;
+    }
+     .image-blur{
+         background-color: rgba(0,0,0, 0.9); 
+    }
+    .active-card-image{
+        height: 650px;
+    }
+}
+
+@media (max-width:390px){
+    .dish-image-width{
+        height: 164px;
+    }
+
+     .active-card-image{
+        height: 700px;
+    }
+
+    .card-title{
+        font-size: 22px;
+    }
+
+    .price-and-vege{
+        display: flex;
+        align-items: center;
+       
+    }
+
+    .mobile-icon{
+        display: flex;
+        position: relative;
+        left: 10px;
+    }
+
+    .price{
+        margin-bottom: 0;
+    }
+
+    .vege-and-chili{
+        display: none;
+    }
+}
+
+@media (max-width: 350px){
+    .menu-button{
+    width: 80px;
+    font-size: 16px;
+    }
+
+    .vege-text{
+    font-size: 16px;
+    }
+}
