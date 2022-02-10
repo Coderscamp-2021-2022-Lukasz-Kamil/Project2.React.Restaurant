@@ -4,13 +4,16 @@ import {Container, Button} from "react-bootstrap";
 
 import  "../../MenuPage/MenuPage.css"
 import "./AdminMenu.css"
-
-
 import AdminDishes from "./AdminDishes";
 import getAllDishes  from "../../../RestaurantApi/Dishes/GetAllDishes";
+import { useNavigate } from "react-router-dom";
 
 const AdminMenu = () => {
- 
+  const navigation = useNavigate();
+
+  const navigationHandler = () => {
+    navigation("/admin/dish", {state: {dishId: '', editMode: false}});
+  };
 
 
   const [dishes, setDishes] = useState([]);
@@ -31,7 +34,7 @@ const AdminMenu = () => {
   return (
     <div>
       <Container fluid className="d-flex add-button-container ">
-          <Button className="menu-button shadow-none border-none btn add-dish" >Add new Dish</Button>
+          <Button onClick={navigationHandler} className="menu-button shadow-none border-none btn add-dish" >Add new Dish</Button>
       </Container>
       <Container fluid className="dishes-card-container">
           <AdminDishes dishes={isVege ? vegeDishes : dishes} />

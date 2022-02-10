@@ -19,6 +19,7 @@ import AdminNavigationBar from "./components/AdminPage/AdminNavigation/AdminNavi
 import AdminSideBar from "./components/AdminPage/AdminNavigation/AdminSideBar";
 import { Col, Row } from "react-bootstrap";
 import "./App.css";
+import DishForm from "./components/AdminPage/DishForm/DishForm";
 
 function App() {
   const [cookie] = useCookies(["isSignedIn"]);
@@ -58,6 +59,12 @@ function App() {
             element={
               <PrivateRoute>
                 <AdminMembers/>
+              </PrivateRoute>
+            } />
+            <Route path="/admin/dish" 
+            element={
+              <PrivateRoute>
+                <DishForm/>
               </PrivateRoute>
             } />
           </Route>

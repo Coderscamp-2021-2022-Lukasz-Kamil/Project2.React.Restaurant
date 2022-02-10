@@ -6,13 +6,17 @@ import TwoChilies from "../../../images/2chili-icon.jpg"
 import ThreeChilies from "../../../images/3chili-icon.png"
 import DeleteIcon from "../../../images/delete-icon.png"
 import EditIcon from "../../../images/edit-icon.png"
-
-
+import { useNavigate } from "react-router-dom"
 
 const AdminDish = props =>{
+  const navigation = useNavigate();
   let vege 
   let chili 
-  
+
+  const navigationHandler = (id) => {
+    navigation("/admin/dish", {state:{dishId:`${id}`, editMode:true}});
+  };
+
   const clickHandler = (keyID) => {
     props.onChange(keyID);
     
@@ -64,7 +68,7 @@ const AdminDish = props =>{
             </div>
         </Card>
         <div className="admin-changes">
-          <button className="changes-button button-edit">
+          <button className="changes-button button-edit" onClick={() => navigationHandler(props.id)}>
             <Image src={EditIcon}></Image>
           </button>
           <button className="changes-button button-delete">
