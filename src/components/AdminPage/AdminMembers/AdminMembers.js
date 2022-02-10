@@ -5,7 +5,7 @@ const AdminMembers = () => {
   return (
     <Container
       style={{
-        width: "100%",
+        maxWidth: "100%",
         alignItems: "center",
         padding: "0",
         margin: "0",

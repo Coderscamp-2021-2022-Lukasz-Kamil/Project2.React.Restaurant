@@ -90,32 +90,28 @@ function App() {
     );
   }
 
-	function PagesWithNavigationAdmin() {
-		return (
-			<>
-				<AdminNavigationBar />
-				<Row style={{ maxWidth: "100%" }}>
-					<Col
-						className='admin-side-bar d-none d-md-block'
-						style={{
-							maxWidth: "26vw",
-							padding: "0",
-							margin: "0",
-						}}>
-						<AdminSideBar />
-					</Col>
-					<Col className="menu-window"
-						style={{
-							maxWidth: "60vw",
-							padding: "0",
-							margin: "0 auto",
-						}}>
-						<Outlet />
-					</Col>
-				</Row>
-			</>
-		);
-	}
+  function PagesWithNavigationAdmin() {
+    return (
+      <>
+        <AdminNavigationBar />
+        <Row className="w-100 p-0 m-0">
+          <Col
+            className="menu-admin-side-bar d-none d-md-block"
+            style={{
+              maxWidth: "26vw",
+              padding: "0",
+              margin: "0",
+            }}
+          >
+            <AdminSideBar />
+          </Col>
+          <Col className="w-100 ">
+            <Outlet />
+          </Col>
+        </Row>
+      </>
+    );
+  }
 }
 
 export default App;

@@ -43,18 +43,18 @@ const Users = (props) => {
     }
   };
 
-
   useEffect(() => getUsers(), [isReloaded, props.onUsersAdded]);
 
   return (
     <Container
-      className="d-flex w-100 flex-wrap text-center pt-3 align-items-start justify-content-center"
+      className={` ${styles.users} d-flex flex-wrap text-center pt-3 align-items-start justify-content-center`}
       style={{
         fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
         fontWeight: "bold",
         height: "auto",
         paddingLeft: "0",
         paddingRight: "0",
+        minWidth: "100%",
       }}
     >
       {cartIsShown && (

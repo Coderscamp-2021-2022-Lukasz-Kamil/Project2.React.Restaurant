@@ -12,15 +12,4 @@ const getAllUsers = async () => {
   }
 };
 
-// const MOCK_USERS = [
-//   { id: 1, name: "Fran", email: "fran@gmail.com", account_type: "user" },
-//   { id: 2, name: "Eloy", email: "eloy@gmail.com", account_type: "user" },
-// ];
-
-// const getAllUsers = async () => {
-//   return new Promise((resolve, reject) => {
-//     resolve(MOCK_USERS);
-//   });
-// };
-
 export default getAllUsers;

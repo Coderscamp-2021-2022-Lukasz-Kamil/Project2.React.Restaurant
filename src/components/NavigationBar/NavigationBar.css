@@ -1,28 +1,38 @@
-.nav-background{
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.918) 24%, rgba(0,0,0,0.8267682072829132) 65%, rgba(0,0,0,0.7147233893557423) 100%);
+.nav-background {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.918) 24%,
+    rgba(0, 0, 0, 0.8267682072829132) 65%,
+    rgba(0, 0, 0, 0.7147233893557423) 100%
+  );
 }
 
-.categories-text{
-    font-size: 36px;
-    font-family: 'Rufina';
-    cursor: default;
+.navbar-default {
+  background-color: transparent;
+}
+.categories-text {
+  font-size: 30px;
+  font-family: "Rufina";
+  cursor: default;
 }
 
-.active-page a.active, .active-page a:hover{
-    color: #E1651F;
-    filter: invert(43%) sepia(91%) saturate(1189%) hue-rotate(349deg) brightness(92%) contrast(91%);
-    transition: 0.1s;
+.active-page a.active,
+.active-page a:hover {
+  color: #e1651f;
+  filter: invert(43%) sepia(91%) saturate(1189%) hue-rotate(349deg)
+    brightness(92%) contrast(91%);
+  transition: 0.1s;
 }
 
-.border-none{
-    border: none;
+.border-none {
+  border: none;
 }
 
-.restaurant-logo{
-    max-width: 71px;
-    max-height: 71px ;
+.restaurant-logo {
+  max-width: 71px;
+  max-height: 71px;
 }
 
-.nav-container{
-    padding: 0;
+.nav-container {
+  padding: 0;
 }

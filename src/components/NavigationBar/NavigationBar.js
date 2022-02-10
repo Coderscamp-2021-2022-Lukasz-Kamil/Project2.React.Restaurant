@@ -13,6 +13,7 @@ const NavigationBar = () => {
         <Nav className="d-none d-md-flex align-items-center">
           <Image
             className="mx-4 my-1"
+            style={{ maxHeight: "12vh" }}
             src={RestaurantLogo}
             alt="restaurant logo"
           ></Image>
