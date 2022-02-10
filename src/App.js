@@ -84,29 +84,7 @@ function App() {
     );
   }
 
-  function PagesWithNavigationAdmin() {
-    return (
-      <>
-        <AdminNavigationBar />
-        <Row style={{ maxWidth: "100%" }}>
-          <Col
-            style={{
-              maxWidth: "20vw",
-              maxHeight: "80vh",
-              padding: "0",
-              margin: "0",
-            }}
-          >
-            <AdminSideBar />
-          </Col>
-          <Col>
-            <Outlet />
-          </Col>
-        </Row>
-      </>
-    );
-  }
-
+  
   function PagesWithNavigationAdmin() {
     return (
       <>

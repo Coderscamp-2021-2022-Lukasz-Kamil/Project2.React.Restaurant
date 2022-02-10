@@ -139,10 +139,10 @@
   display: block;
 }
 
-.description-and-ingredients {
+.description-and-ingredients-admin {
   width: 80%;
   font-family: Rufina;
-  font-size: 22px;
+  font-size: 20px;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -388,7 +388,7 @@
 
     .active-card-image{
     width: 100%;
-    height: 600px ;
+    height: 600px !important ;
 }
 
 }
@@ -423,7 +423,7 @@
     background-color: rgba(0, 0, 0, 0.9);
   }
   .active-card-image {
-    height: 650px;
+    height: 650px !important;
   }
 }
 
@@ -433,7 +433,7 @@
   }
 
   .active-card-image {
-    height: 700px;
+    height: 700px !important;
   }
 
   .card-title {

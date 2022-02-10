@@ -36,7 +36,7 @@ const AdminMenu = () => {
       <Container fluid className="d-flex add-button-container ">
           <Button onClick={navigationHandler} className="menu-button shadow-none border-none btn add-dish" >Add new Dish</Button>
       </Container>
-      <Container fluid className="dishes-card-container">
+      <Container fluid className="dishes-card-container dishes-card-container-admin">
           <AdminDishes dishes={isVege ? vegeDishes : dishes} />
       </Container>
     </div>
