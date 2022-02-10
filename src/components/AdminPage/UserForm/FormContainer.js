@@ -10,10 +10,11 @@ const FormContainer = () => {
 
   return (
     <Container
-      className={` ${styles.form} w-75 p-0 d-flex flex-column align-items-center justify-content-center`}
+      className={` ${styles.form} w-75 mt-3 d-flex flex-column `}
       style={{
         fontFamily: "Roboto",
-        minHeight: "85vh",
+        minHeight: "80vh",
+        justifyContent: "flex-start",
       }}
     >
       <AddingUserForm onUsersAdded={setIsUserAdded} />

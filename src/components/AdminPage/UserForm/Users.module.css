@@ -4,6 +4,13 @@
 
 @media (max-width: 767px) {
   .usersContainer {
-    min-width: 99vw !important;
+    min-width: 80vw !important;
+  }
+
+  .emailColumn {
+    display: none !important;
+  }
+  .users {
+    max-width: "50vw" !important;
   }
 }

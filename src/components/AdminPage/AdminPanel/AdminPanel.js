@@ -30,7 +30,7 @@ const AdminPanel = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
         setCookie("isSignedIn", true, { path: "/" });
-        setCookie("signedUserEmail", email, {path: "/"});
+        setCookie("signedUserEmail", email, { path: "/" });
         navigation();
       })
       .catch((err) => {
@@ -100,7 +100,9 @@ const AdminPanel = () => {
               />
             </InputGroup>
           </FormGroup>
-          {invalidLoginData && !retrying && <p>Invalid login credentials!</p>}
+          {invalidLoginData && !retrying && (
+            <p className="text-white">Invalid login credentials!</p>
+          )}
           <Button
             className={`p-2 rounded text-uppercase mt-2 shadow ${styles.signInButton} ${styles.form}`}
             style={{
