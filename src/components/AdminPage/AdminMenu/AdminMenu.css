@@ -1,0 +1,227 @@
+.add-button-container{
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.add-dish, .menu-button:focus{
+    width: 250px !important;
+    height: 80px;
+    font-weight: bold;
+    background-color: #777777 ;
+    color: black;
+}
+
+.active-card{
+    width: 40rem !important;
+
+}
+.menu-button:hover, .menu-button:active, .menu-button:visited{
+    background-color: #E1651F;
+    color: white ;
+}
+
+.dishes-card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-auto-flow: dense;
+}
+
+.admin-changes{
+    width: 100%;
+    background-color: #C4C4C4;
+    margin-bottom: 40px;
+}
+
+.changes-button{
+    border: none;
+    background: transparent;
+    margin-left: 25px
+}
+
+.button-delete{
+    margin-left: 25px;
+}
+
+.menu-dish-admin{
+    width: 20rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-window{
+    max-width: 100% !important;
+}
+
+@media (max-width: 1420px){
+    .dishes-card-container{
+    grid-template-columns: 1fr 1fr; 
+}
+}
+
+@media (max-width:1230px){
+    .active-card{
+        width: 25rem !important;
+    }
+    .active-card-image{
+        height: 1000px;
+    }
+    .image-blur{
+         background-color: rgba(0,0,0, 0.99); 
+    }
+}
+
+@media (max-width: 1000px){
+  .menu-dish-admin{
+    width: 16rem;
+  }
+  .price{
+      width: 40px;
+  }
+  .empty-box{
+      width: 40px;
+  }
+  .admin-side-bar{
+      display: none !important;
+  }
+}
+
+@media(max-width:600px){
+    .dishes-card-container{
+        grid-template-columns: 1fr; 
+    }
+    
+    .menu-dish-admin{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dish-card{
+        justify-content: left !important;
+        margin: 0 20px;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    
+    .container-admin-dish{
+        width: 100%;
+        margin-left: 30px;
+    }
+
+    .nothin{
+        display: none;
+    }
+
+    .dish-image-width{
+        transition: 0.1s;
+    }
+
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+     .dish-name-and-price{
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .price{
+        margin-bottom: 10px;
+    }
+
+    .dishes-container{
+        padding: 0;
+    }
+
+    .dishes-card-container{
+        grid-template-columns: 1fr;
+    }
+
+    .card-title{
+        text-align: center;
+    }
+
+    .active-card{
+        display: flex;    
+        width: 100% !important;
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .description-and-ingredients{
+        font-size: 18px;
+    }
+
+    .description-and-ingredients-heading{
+        font-size: 22px;
+    }
+
+    .image-blur{
+    top: 36.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 76%;
+    }
+
+    .empty-box{
+        display: none;
+    }
+
+    .image-blur {
+        top: 50%;
+        height: 100%;
+    }
+    .dish-image-width:hover{
+        transform: none;
+        filter: none;
+    }
+
+    .dish-image-width:hover + .click-me{
+        display: none;
+    }
+
+    .click-me:hover{
+        display: none;
+    }
+    
+
+}
+
+@media (max-width: 550px){
+    .card-title{
+       font-size: 28px; 
+    }
+   
+    .price{
+        height: 40px;
+    }
+
+    .chili-icon{
+        height: 20px;
+    }
+
+    .vege-icon{
+        height: 20px;
+    }
+
+    .dish-image-width{
+        height: 186px;
+    }
+
+    .active-card-image{
+    width: 100%;
+    height: 850px ;
+}
+}
+
+@media (max-width: 500px){
+    .card-title{
+        font-size: 22px;
+    }
+}

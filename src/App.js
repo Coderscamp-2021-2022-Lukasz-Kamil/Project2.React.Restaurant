@@ -96,7 +96,7 @@ function App() {
 				<AdminNavigationBar />
 				<Row style={{ maxWidth: "100%" }}>
 					<Col
-						className='d-none d-md-block'
+						className='admin-side-bar d-none d-md-block'
 						style={{
 							maxWidth: "26vw",
 							padding: "0",
@@ -104,7 +104,7 @@ function App() {
 						}}>
 						<AdminSideBar />
 					</Col>
-					<Col
+					<Col className="menu-window"
 						style={{
 							maxWidth: "60vw",
 							padding: "0",

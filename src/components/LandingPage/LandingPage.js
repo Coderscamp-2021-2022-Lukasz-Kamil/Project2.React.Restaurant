@@ -8,7 +8,7 @@ const LandingPage = () => {
     <div
       data-testid="background"
       style={{
-        backgroundImage: `url(${background})`,
+        backgroundImage: `url("${background}")`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
