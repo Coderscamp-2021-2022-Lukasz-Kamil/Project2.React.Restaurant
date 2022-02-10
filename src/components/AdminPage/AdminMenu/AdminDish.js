@@ -90,7 +90,7 @@ const AdminDish = (props) => {
         <Card
           className={
             "menu-dish-admin no-paddings " +
-            (props.selectedId === props.id ? "active-card" : "disactive")
+            (props.selectedId === props.id ? "active-card-admin" : "disactive-admin")
           }
         >
           <Button
@@ -103,8 +103,8 @@ const AdminDish = (props) => {
               className={
                 "dish-image-width " +
                 (props.selectedId === props.id
-                  ? "active-card-image"
-                  : "inactive-card-image")
+                  ? "active-card-image active-card-image-admin"
+                  : "inactive-card-image inactive-card-image-admin")
               }
             ></Image>
             <div
@@ -115,21 +115,21 @@ const AdminDish = (props) => {
                   : "inactive-card-blur")
               }
             >
-              <div className="description-and-ingredients">
-                <p className="description-and-ingredients-heading">
+              <div className="description-and-ingredients description-and-ingredients-admin">
+                <p className="description-and-ingredients-heading description-and-ingredients-heading-admin">
                   Desctiption:
                 </p>
                 <p>{props.description}</p>
               </div>
-              <div className="description-and-ingredients ingredients">
-                <p className="description-and-ingredients-heading">
+              <div className="description-and-ingredients description-and-ingredients-admin ingredients">
+                <p className="description-and-ingredients-heading description-and-ingredients-heading-admin">
                   Ingredients
                 </p>
                 <p>{props.ingredients}</p>
               </div>
             </div>
           </Button>
-          <div className="card-body">
+          <div className="card-body card-body-admin">
             <div className="d-flex dish-name-and-price">
               <div className="empty-box"></div>
               <p className="card-title">{props.dish}</p>
@@ -153,13 +153,13 @@ const AdminDish = (props) => {
         >
           <Image src={EditIcon}></Image>
         </button>
-        <Button
+        <button
           className="changes-button button-delete"
           type="button"
           onClick={setClickedIdAndShowCart(props.id)}
         >
           <Image src={DeleteIcon}></Image>
-        </Button>
+        </button>
       </div>
     </div>
   );

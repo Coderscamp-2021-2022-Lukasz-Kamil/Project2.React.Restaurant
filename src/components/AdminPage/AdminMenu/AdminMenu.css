@@ -3,7 +3,7 @@
     margin: 20px 0;
 }
 
-.add-dish, .menu-button:focus{
+.add-dish, .add-dish:focus{
     width: 250px !important;
     height: 80px;
     font-weight: bold;
@@ -11,7 +11,7 @@
     color: black;
 }
 
-.active-card{
+.active-card-admin{
     width: 40rem !important;
 
 }
@@ -20,7 +20,8 @@
     color: white ;
 }
 
-.dishes-card-container{
+
+.dishes-card-container-admin{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
@@ -53,18 +54,22 @@
     max-width: 100% !important;
 }
 
-@media (max-width: 1420px){
-    .dishes-card-container{
-    grid-template-columns: 1fr 1fr; 
-}
+@media(max-width: 1550px){
+     .dishes-card-container-admin{
+    grid-template-columns: 1fr 1fr !important;
+    }   
+
+    .description-and-ingredients-admin{
+        font-size: 20px;
+    }
 }
 
 @media (max-width:1230px){
-    .active-card{
+    .active-card-admin{
         width: 25rem !important;
     }
-    .active-card-image{
-        height: 1000px;
+    .active-card-image-admin{
+        height: 1000px !important;
     }
     .image-blur{
          background-color: rgba(0,0,0, 0.99); 
@@ -86,12 +91,19 @@
   }
 }
 
+
+@media(max-width:800px){
+     .dishes-card-container-admin{
+        grid-template-columns: 1fr !important;
+    }
+}
+
 @media(max-width:600px){
-    .dishes-card-container{
+    .dishes-card-container-admin{
         grid-template-columns: 1fr; 
     }
     
-    .menu-dish-admin{
+    .menu-dish-admin-amin{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -108,14 +120,13 @@
     
     .container-admin-dish{
         width: 100%;
-        margin-left: 30px;
     }
 
     .nothin{
         display: none;
     }
 
-    .dish-image-width{
+    .dish-image-width-admin{
         transition: 0.1s;
     }
 
@@ -125,55 +136,51 @@
         justify-content: center;
     }
 
-     .dish-name-and-price{
+     .dish-name-and-price-admin{
         align-items: center;
         flex-direction: column;
     }
 
-    .price{
+    .price-admin{
         margin-bottom: 10px;
     }
 
-    .dishes-container{
+    .dishes-container-admin{
         padding: 0;
     }
 
-    .dishes-card-container{
-        grid-template-columns: 1fr;
-    }
-
-    .card-title{
+       .card-title-admin{
         text-align: center;
     }
 
-    .active-card{
+    .active-card-admin{
         display: flex;    
         width: 100% !important;
         grid-column: span 1;
         grid-row: span 1;
     }
 
-    .description-and-ingredients{
+    .description-and-ingredients-admin{
         font-size: 18px;
     }
 
-    .description-and-ingredients-heading{
+    .description-and-ingredients-heading-admin{
         font-size: 22px;
     }
 
-    .image-blur{
-    top: 36.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 76%;
+    .image-blur-admin{
+        top: 36.5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 76%;
     }
 
-    .empty-box{
+    .empty-box-admin{
         display: none;
     }
 
-    .image-blur {
+    .image-blur-admin {
         top: 50%;
         height: 100%;
     }
@@ -194,34 +201,34 @@
 }
 
 @media (max-width: 550px){
-    .card-title{
+    .card-title-admin{
        font-size: 28px; 
     }
    
-    .price{
+    .pric-admin{
         height: 40px;
     }
 
-    .chili-icon{
+    .chili-icon-admin{
         height: 20px;
     }
 
-    .vege-icon{
+    .vege-icon-admin{
         height: 20px;
     }
 
-    .dish-image-width{
+    .dish-image-width-admin{
         height: 186px;
     }
 
-    .active-card-image{
+    .active-card-image-admin{
     width: 100%;
     height: 850px ;
 }
 }
 
 @media (max-width: 500px){
-    .card-title{
+    .card-title-admin{
         font-size: 22px;
     }
 }

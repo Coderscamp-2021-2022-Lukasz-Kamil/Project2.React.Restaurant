@@ -105,7 +105,7 @@ const MenuDish = props =>{
               <div className={"image-blur "+ (props.selectedId === props.id ? "active-card-blur" : "inactive-card-blur")}>
                 
               <div className="description-and-ingredients">
-                <p className="description-and-ingredients-heading">Desctiption:</p>
+                <p className="description-and-ingredients-heading">Description:</p>
                 <p>{props.description}</p>
               </div>
               <div className="description-and-ingredients ingredients">

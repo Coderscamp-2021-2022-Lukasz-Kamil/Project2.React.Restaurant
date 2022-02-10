@@ -21,6 +21,7 @@ const LandingPage = () => {
           style={{
             lineHeight: "0.9",
             fontSize: "clamp(6rem, 16vw, 9rem)",
+            fontFamily: "Italianno"
           }}
         >
           Paradiso Italiano
@@ -35,7 +36,7 @@ const LandingPage = () => {
           Italian Restaurant
         </Card.Subtitle>
         <Card.Body data-testid="about-container" className={styles["about"]}>
-          <Card.Title className={styles["aboutTitle"]}>About</Card.Title>
+          <Card.Title className={styles["aboutTitle"]}style={{fontFamily:"Ruffina"}}>About</Card.Title>
           <Card.Text data-testid="about-description">
             With this desire was born the idea of ​​creating Paradiso Italiano,
             where you can find real Italian flavors: pizza on a delicate, thin
