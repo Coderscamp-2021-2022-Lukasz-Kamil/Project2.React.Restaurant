@@ -5,7 +5,9 @@ const Cart = (props) => {
   return (
     <Modal>
       <div className={classes.total}>
-        <span>Are you sure you want to permanently remove this user?</span>
+        <span>
+          Are you sure you want to permanently remove this {props.name}?
+        </span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={props.onConfirm}>

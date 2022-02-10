@@ -61,6 +61,7 @@ const Users = (props) => {
         <Cart
           onClose={hideCartHandler}
           onConfirm={createRemoveUserFunction(clickedUserId)}
+          name="user"
         />
       )}
       {allUsers.map((user) => (
