@@ -16,6 +16,8 @@
 
 .aboutTitle {
   text-transform: uppercase;
+  font-family: "Rufina";
+  font-size: 26px !important;
 }
 
 @media (max-width: 750px) {
