@@ -48,8 +48,18 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/admin/menu" element={<AdminMenu />} />
-            <Route path="/admin/members" element={<AdminMembers />} />
+            <Route path="/admin/menu" 
+            element={
+              <PrivateRoute>
+                <AdminMenu />
+              </PrivateRoute>
+            } />
+            <Route path="/admin/members" 
+            element={
+              <PrivateRoute>
+                <AdminMembers/>
+              </PrivateRoute>
+            } />
           </Route>
 
           <Route path="*" element={<NotFound />} />
