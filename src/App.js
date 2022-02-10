@@ -48,8 +48,18 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/admin/menu" element={<AdminMenu />} />
-            <Route path="/admin/members" element={<AdminMembers />} />
+            <Route path="/admin/menu" 
+            element={
+              <PrivateRoute>
+                <AdminMenu />
+              </PrivateRoute>
+            } />
+            <Route path="/admin/members" 
+            element={
+              <PrivateRoute>
+                <AdminMembers/>
+              </PrivateRoute>
+            } />
           </Route>
 
           <Route path="*" element={<NotFound />} />
@@ -96,7 +106,7 @@ function App() {
         <AdminNavigationBar />
         <Row className="w-100 p-0 m-0">
           <Col
-            className="d-none d-md-block"
+            className="menu-admin-side-bar d-none d-md-block"
             style={{
               maxWidth: "26vw",
               padding: "0",
