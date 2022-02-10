@@ -45,8 +45,11 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .editUserContainer {
+    min-width: 60vw !important;
+  }
   .input {
-    min-width: 50vw !important;
+    min-width: 40vw !important;
   }
 
   .bottomBox {

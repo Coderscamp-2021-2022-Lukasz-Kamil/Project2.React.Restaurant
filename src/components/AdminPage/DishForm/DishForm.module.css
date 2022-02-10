@@ -1,0 +1,54 @@
+::placeholder {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-family: Rufina;
+    text-transform: unset;
+    letter-spacing: 1.2px;
+    opacity: 0.5 !important;
+    color: #c4c4c4 !important;
+  }
+
+  .submitButton:hover {
+    border-color: #E1651F;
+    border-width: 2px;
+  }
+  
+  .input:hover {
+    border-color: #e48b25;
+  }
+  
+  @media (max-width: 767px) {
+    .inputsContainer {
+      background-color: #fff !important;
+    }
+    .dishFormContainer {
+      min-width: 100vw !important;
+      padding: 0 !important;
+    }
+  
+    .input {
+      min-width: 99vw !important;
+    }
+  
+    .bottomBox {
+      min-width: 90vw !important;
+    }
+
+    .submitButton {
+      max-height: 3vh !important;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .input {
+      min-width: 50vw !important;
+    }
+  
+    .bottomBox {
+      min-width: 50vw !important;
+    }
+
+    .submitButton {
+      max-height: 3vh !important;
+    }
+  }
+  

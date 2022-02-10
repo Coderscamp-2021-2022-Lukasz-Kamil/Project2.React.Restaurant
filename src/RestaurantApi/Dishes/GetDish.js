@@ -5,7 +5,8 @@ const getDish = async(id) => {
   const dishRef = doc(db, 'dishes', id);
 
   try {
-    return await getDoc(dishRef);
+    const dishData =await getDoc(dishRef);
+    return await dishData.data();
   } catch (err) {
     throw new Error("Server Error");
   }

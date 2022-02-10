@@ -6,18 +6,24 @@ import TwoChilies from "../../../images/2chili-icon.jpg";
 import ThreeChilies from "../../../images/3chili-icon.png";
 import DeleteIcon from "../../../images/delete-icon.png";
 import EditIcon from "../../../images/edit-icon.png";
+import { useNavigate } from "react-router-dom";
 import Cart from "../../Modal/Cart";
 import { useState, useEffect } from "react";
 import deleteDish from "../../../RestaurantApi/Dishes/DeleteDish";
 import getAllDishes from "../../../RestaurantApi/Dishes/GetAllDishes";
 
 const AdminDish = (props) => {
+  const navigation = useNavigate();
   let vege;
   let chili;
   const [allDishes, setAllDishes] = useState([]);
   const [isReloaded, setIsReloaded] = useState({});
   const [cartIsShown, setCartIsShown] = useState(false);
   const [clickedDishId, setClickedDishId] = useState();
+
+  const navigationHandler = (id) => {
+    navigation("/admin/dish", { state: { dishId: `${id}`, editMode: true } });
+  };
 
   const setClickedIdAndShowCart = (id) => {
     return () => {
@@ -141,7 +147,10 @@ const AdminDish = (props) => {
         </Card>
       </div>
       <div className="admin-changes" key={props.id}>
-        <button className="changes-button button-edit">
+        <button
+          className="changes-button button-edit"
+          onClick={() => navigationHandler(props.id)}
+        >
           <Image src={EditIcon}></Image>
         </button>
         <Button
