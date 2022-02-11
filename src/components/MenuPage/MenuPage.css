@@ -139,10 +139,10 @@
   display: block;
 }
 
-.description-and-ingredients-admin {
+.description-and-ingredients {
   width: 80%;
   font-family: Rufina;
-  font-size: 20px;
+  font-size: 22px;
   position: absolute;
   top: 40%;
   left: 50%;
