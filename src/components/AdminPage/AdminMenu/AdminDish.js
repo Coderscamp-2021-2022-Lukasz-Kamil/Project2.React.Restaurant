@@ -121,7 +121,7 @@ const AdminDish = (props) => {
                 </p>
                 <p class>{props.description}</p>
               </div>
-              <div className="description-and-ingredients description-and-ingredients-admin ingredients">
+              <div className="description-and-ingredients  ingredients">
                 <p className="description-and-ingredients-heading description-and-ingredients-heading-admin">
                   Ingredients
                 </p>
